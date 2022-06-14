@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
+import SearchResults from "./SearchResults";
 
 var axios = require("axios").default;
 
 const Search = () => {
   const [input, setInput] = useState("");
-  const [post, setPost] = useState("");
+  const [post, setPost] = useState([]);
   const [active, setActive] = useState("");
 
   const changeHandler = (e) => {
@@ -33,19 +34,14 @@ const Search = () => {
     setActive("showMe");
   };
 
- let searchResults = 
-        post.map((element, index) => {
-          return (
-            <div>
-              <h3>
-                Company Name: {element.name}, Ticker Symbol:{element.symbol}
-              </h3>
-              <button>Click for more details</button>
-            </div>
-          );
-        });
-    
-    
+  let searchResults = post.map((element, index) => {
+    return (
+      <div>
+        <SearchResults elementName={element.name} elementSymbol={element.symbol}/>
+      </div>
+    );
+  });
+
   return (
     <div>
       <input placeholder="Search for a stock" onChange={changeHandler}></input>

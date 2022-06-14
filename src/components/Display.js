@@ -1,18 +1,19 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 var axios = require("axios").default;
 
-var options = {
-  method: "GET",
-  url: "https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=AAPL%2CBTC-USD%2CEURUSD%3DX",
-  params: { modules: "defaultKeyStatistics,assetProfile" },
-  headers: {
-    "x-api-key": "QzOXYvGuwW5XkpCBYumzt8ReryTGzlxF2UYclLDV",
-  },
-};
-
-const Display = () => {
+const Display = (props) => {
+  const { elementName, elementSymbol } = props;
   const [post, setPost] = useState({});
+
+  var options = {
+    method: "GET",
+    url: `https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=${elementSymbol}%2CBTC-USD%2CEURUSD%3DX`,
+    params: { modules: "defaultKeyStatistics,assetProfile" },
+    headers: {
+      "x-api-key": "QzOXYvGuwW5XkpCBYumzt8ReryTGzlxF2UYclLDV",
+    },
+  };
 
   useEffect(() => {
     axios
@@ -57,6 +58,7 @@ const Display = () => {
         ratio is far off from the industry average, it might eventually - but
         not necessarily - realign with the industry average."
       </p>
+      <button>Add To Watchlist</button>
     </div>
   );
 };
