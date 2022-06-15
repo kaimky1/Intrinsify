@@ -1,24 +1,29 @@
-import React, {useState} from 'react'
-import Display from './Display'
-
-
+import React, { useState } from "react";
+import Display from "./Display";
+import {Link} from 'react-router-dom'
 
 const SearchResults = (props) => {
-    const [showMe, setShowMe] = useState("")
-    
-    const clickHandler = () => {
-        setShowMe(true)
-    }
-    const {elementName, elementSymbol} = props;
+  const [showMe, setShowMe] = useState(false);
+
+  const clickHandler = () => {
+    setShowMe(!showMe);
+  };
+  const { elementName, elementSymbol } = props;
   return (
     <div>
-        <h3>
-          Company Name: {elementName}, Ticker Symbol: {elementSymbol}
-        </h3>
+      <h3>
+        Company Name: {elementName}, Ticker Symbol: {elementSymbol}
+      </h3>
+      <Link to="/stocks">
         <button onClick={clickHandler}>Click for more details</button>
-        {showMe == true && <Display elementName={elementName} elementSymbol={elementSymbol}/>}
+      </Link>
+      <div>
+        {showMe && (
+          <Display elementName={elementName} elementSymbol={elementSymbol} />
+        )}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default SearchResults
+export default SearchResults;

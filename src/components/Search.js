@@ -6,7 +6,8 @@ var axios = require("axios").default;
 const Search = () => {
   const [input, setInput] = useState("");
   const [post, setPost] = useState([]);
-  const [active, setActive] = useState("");
+  const [active, setActive] = useState(false);
+  const [data, setData] = useState([]);
 
   const changeHandler = (e) => {
     setInput(e.target.value);
@@ -21,32 +22,57 @@ const Search = () => {
         "x-api-key": "QzOXYvGuwW5XkpCBYumzt8ReryTGzlxF2UYclLDV",
       },
     };
-    axios
-      .request(options)
-      .then((response) => {
-        console.log(response.data.ResultSet.Result);
-        setPost(response.data.ResultSet.Result);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
+    if (data.length === 0) {
+      axios
+        .request(options)
+        .then((response) => {
+          localStorage.setItem(
+            "data", JSON.stringify(response.data.ResultSet.Result)
+          );
+          console.log(localStorage.getItem("data"));
+          setData(response.data.ResultSet.Result)
+          setPost(response.data.ResultSet.Result);
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    }
 
-    setActive("showMe");
+    setActive(!active);
   };
+ 
+  //limit API Calls so I created a fake dataset here.
+  let dataResults = data.map((element, index) => {
+    return (
+      <div>
+        <SearchResults
+          elementName={element.name}
+          elementSymbol={element.symbol}
+          key={index}
+        />
+      </div>
+    );
+  });
+    
+  
 
   let searchResults = post.map((element, index) => {
     return (
       <div>
-        <SearchResults elementName={element.name} elementSymbol={element.symbol}/>
+        <SearchResults
+          elementName={element.name}
+          elementSymbol={element.symbol}
+          key={index}
+        />
       </div>
     );
   });
 
   return (
-    <div>
+    <div className="search">
       <input placeholder="Search for a stock" onChange={changeHandler}></input>
       <button onClick={clickHandler}>Search</button>
-      {active === "showMe" && searchResults}
+      {(active && dataResults) || (active && searchResults)}
     </div>
   );
 };
