@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 var axios = require("axios").default;
 
 const Display = (props) => {
-  console.log(props)
+  console.log("This is the props", props)
   const { elementName, elementSymbol } = props;
   const [post, setPost] = useState({});
   const [data, setData] = useState({});
@@ -17,36 +17,49 @@ const Display = (props) => {
   //   },
   // };
 
-  var options = {
-    method: "GET",
-    url: `https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=AAPL%2CBTC-USD%2CEURUSD%3DX`,
-    params: { modules: "defaultKeyStatistics,assetProfile" },
-    headers: {
-      "x-api-key": "QzOXYvGuwW5XkpCBYumzt8ReryTGzlxF2UYclLDV",
-    },
-  };
+  // var options = {
+  //   method: "GET",
+  //   url: `https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=AAPL%2CBTC-USD%2CEURUSD%3DX`,
+  //   params: { modules: "defaultKeyStatistics,assetProfile" },
+  //   headers: {
+  //     "x-api-key": "QzOXYvGuwW5XkpCBYumzt8ReryTGzlxF2UYclLDV",
+  //   },
+  // };
 
+
+
+  // useEffect(() => {
+  //   if (Object.keys(data).length === 0) {
+  //     axios
+  //       .request(options)
+  //       .then((response) => {
+  //         localStorage.setItem(
+  //           "stock",
+  //           JSON.stringify(response.data.quoteResponse.result[0]))
+  //         setData(response.data.quoteResponse.result[0]);
+  //         console.log(localStorage.getItem("stock"))
+  //         setPost(response.data.quoteResponse.result[0]);
+  //       })
+  //       .catch(function (error) {
+  //         console.error(error);
+  //       });
+  //   }
+  // }, []);
 
 
   useEffect(() => {
-    if (Object.keys(data).length === 0) {
       axios
-        .request(options)
+        .get(`https://financialmodelingprep.com/api/v3/ratios-ttm/${elementSymbol}?apikey=${process.env.REACT_APP_API_KEY}`)
         .then((response) => {
-          localStorage.setItem(
-            "stock",
-            JSON.stringify(response.data.quoteResponse.result[0]))
-          setData(response.data.quoteResponse.result[0]);
-          console.log(localStorage.getItem("stock"))
-          setPost(response.data.quoteResponse.result[0]);
+          console.log(response.data)
+          setPost(response.data);
         })
         .catch(function (error) {
           console.error(error);
         });
-    }
   }, []);
 
-  console.log("hi")
+  
   return (
     //display on right
     <div className="dataInfo">

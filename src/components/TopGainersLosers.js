@@ -20,11 +20,11 @@ const TopGainersLosers = () => {
 
   let gainersResults = post.map((element, index) => {
     return (
-      <div className="gainers">
-        <div className="gainerInfo">
+      <div className="gainers" key={index}>
+        <div className="gainerInfo" id="gainerSymbol">
           <p>{element.symbol}</p>
         </div>
-        <div className="gainerInfo">
+        <div className="gainerInfo" id="gainerName">
           <p>{element.name} </p>
         </div>
         <div className="gainerInfo" id="gainerChange">

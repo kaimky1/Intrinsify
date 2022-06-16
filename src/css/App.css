@@ -1,5 +1,11 @@
  .App {
-display:flex
+display:flex;
+}
+
+.GainsLosses{
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
 }
 
 .dataInfo{
@@ -10,7 +16,7 @@ display:flex
 
 
 .gainers{
-  margin:10px
+  display:flex;
 }
 
 
@@ -28,5 +34,14 @@ display:flex
 .App-header {
   min-height: 100vh;
 } 
+
+.topGainers{
+  width:100%;
+}
+.toplosers{
+  width:100%;
+  margin-left: 5px;
+}
+
 
 

@@ -10,13 +10,14 @@ const SearchResults = (props) => {
     setShowMe(!showMe);
   };
   const { elementName, elementSymbol } = props;
+  console.log(props)
   return (
     <div>
       <div className="card" style={{"width": "50rem"}}>
-      <h5 class="card-title">
+      <h5 className="card-title">
         Company Name: {elementName}
       </h5>
-      <h6 class="card-subtitle">
+      <h6 className="card-subtitle">
         Ticker Symbol: {elementSymbol}
       </h6>
       <Link to="/stocks">
