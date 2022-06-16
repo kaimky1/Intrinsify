@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Display from "./Display";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const SearchResults = (props) => {
   const [showMe, setShowMe] = useState(false);
@@ -15,7 +15,13 @@ const SearchResults = (props) => {
         Company Name: {elementName}, Ticker Symbol: {elementSymbol}
       </h3>
       <Link to="/stocks">
-        <button onClick={clickHandler}>Click for more details</button>
+        <button
+          type="button"
+          className="btn btn-primary btn-sm"
+          onClick={clickHandler}
+        >
+          Click for more details
+        </button>
       </Link>
       <div>
         {showMe && (

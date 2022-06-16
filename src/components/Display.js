@@ -33,7 +33,6 @@ const Display = (props) => {
       axios
         .request(options)
         .then((response) => {
-          console.log(response.data.quoteResponse.result[0]);
           localStorage.setItem(
             "stock",
             JSON.stringify(response.data.quoteResponse.result[0]))
@@ -47,7 +46,6 @@ const Display = (props) => {
     }
   }, []);
 
-  console.log("This is the data", data)
   console.log("hi")
   return (
     //display on right
@@ -94,6 +92,7 @@ const Display = (props) => {
         {data.averageAnalystRating ||
           post.averageAnalystRating}
       </h3>
+      <h3>52 Week Range: { data.fiftyTwoWeekRange  || post.fiftyTwoWeekRange}</h3>
       <button>Add To Watchlist</button>
     </div>
   );

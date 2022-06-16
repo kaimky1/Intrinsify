@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SearchResults from "./SearchResults";
+import bootstrap from 'bootstrap'
+import './Search.css'
 
 var axios = require("axios").default;
 
@@ -70,8 +72,8 @@ const Search = () => {
 
   return (
     <div className="search">
-      <input placeholder="Search for a stock" onChange={changeHandler}></input>
-      <button onClick={clickHandler}>Search</button>
+      <input className="stockInput" placeholder="Search for a stock" onChange={changeHandler}></input>
+      <button type="button" onClick={clickHandler} className="btn btn-success">Search</button>
       {(active && dataResults) || (active && searchResults)}
     </div>
   );
