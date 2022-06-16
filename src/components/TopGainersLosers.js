@@ -8,7 +8,7 @@ const TopGainersLosers = () => {
   useEffect(() => {
     axios
       .get(
-        "https://financialmodelingprep.com/api/v3/stock_market/gainers?apikey=41d7c9dfc25f0d3ce3bd486781f50c45"
+        `https://financialmodelingprep.com/api/v3/stock_market/gainers?apikey=${process.env.REACT_APP_API_KEY}`
       )
       .then((response) => {
         setPost(response.data);
@@ -17,6 +17,7 @@ const TopGainersLosers = () => {
         console.error(error);
       });
   }, []);
+
 
   let gainersResults = post.slice(0,5).map((element, index) => {
     return (
