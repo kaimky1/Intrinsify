@@ -20,7 +20,6 @@ const Search = () => {
       axios
         .get(`https://financialmodelingprep.com/api/v3/search?query=${input}&limit=10&apikey=${process.env.REACT_APP_API_KEY}`)
         .then((response) => {
-          console.log(response.data)
           setPost(response.data);
         })
         .catch(function (error) {
@@ -28,7 +27,7 @@ const Search = () => {
         });
     
 
-    setActive(!active);
+    // setActive(!active);
   };
 
   // const clickHandler = (e) => {

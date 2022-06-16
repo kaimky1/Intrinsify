@@ -28,7 +28,7 @@ function App() {
             </>
           }
         />
-        <Route path="stocks" element={<Display />} />
+        <Route path="/:elementSymbol" element={<Display />} />
       </Routes>
     </div>
   );

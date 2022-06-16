@@ -11,7 +11,6 @@ const TopLosers = () => {
           `https://financialmodelingprep.com/api/v3/stock_market/losers?apikey=${process.env.REACT_APP_API_KEY}`
         )
         .then((response) => {
-          console.log(response.data);
           setPost(response.data);
         })
         .catch(function (error) {

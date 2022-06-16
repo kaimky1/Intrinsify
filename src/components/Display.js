@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
+import {useParams} from 'react-router-dom';
 
 var axios = require("axios").default;
 
-const Display = (props) => {
-  console.log("This is the props", props)
-  const { elementName, elementSymbol } = props;
+const Display = () => {
+ const {elementSymbol} = useParams()
+  // const { elementName, elementSymbol } = props;
   const [post, setPost] = useState({});
   const [data, setData] = useState({});
 
@@ -51,7 +52,7 @@ const Display = (props) => {
       axios
         .get(`https://financialmodelingprep.com/api/v3/ratios-ttm/${elementSymbol}?apikey=${process.env.REACT_APP_API_KEY}`)
         .then((response) => {
-          console.log(response.data)
+          console.log("responsedata", response.data)
           setPost(response.data);
         })
         .catch(function (error) {
@@ -61,13 +62,12 @@ const Display = (props) => {
 
   
   return (
-    //display on right
     <div className="dataInfo">
       <h1>{data.displayName || post.displayName}</h1>
       <h2>{`$` + data.ask|| `$` + post.ask}</h2>
       <h2>
         Average P/E Ratio Current Year:{" "}
-        {data.trailingPE || `${post.trailingPE}`}
+        `${post.trailingPE}`
       </h2>
       <p>
         What is P/E ratio? The Price/Earnings ratio is used to determine how
