@@ -1,0 +1,18 @@
+.dataInfo{
+    width: 50%;
+    text-align: left;
+    padding: 5px;
+}
+
+#stockName{
+    text-align: center;
+}
+#stockPrice{
+    text-align: center;
+}
+
+#watchlist{
+    text-align: center;
+    margin: auto;
+    display:flex;
+}

@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Display from "./components/Display";
 import TopGainersLosers from "./components/TopGainersLosers";
 import TopLosers from "./components/TopLosers";
+import Graph from "./components/Graph";
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
             </>
           }
         />
-        <Route path="/:elementSymbol" element={<Display />} />
+        <Route path="/:elementSymbol" element={<div><Display /><Graph /></div>} />
       </Routes>
     </div>
   );
