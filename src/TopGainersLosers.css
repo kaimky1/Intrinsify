@@ -1,0 +1,10 @@
+.gainers{
+    display:flex;
+}
+.gainerInfo{
+    border-style: solid;
+    border-width: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 0;
+}

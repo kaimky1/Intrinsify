@@ -5,12 +5,14 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import {BrowserRouter } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css';
+import Header from "./components/Header";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+      <Header />
       <App />
     </BrowserRouter>
   </React.StrictMode>

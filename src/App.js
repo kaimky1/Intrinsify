@@ -8,11 +8,15 @@ import TopGainersLosers from "./components/TopGainersLosers";
 function App() {
   return (
     <div className="App">
+      
       <Routes>
-          <Route index element={<Search />} />
-          <Route path="stocks" element={<Display/>}/>
+        <Route index element={<>
+        <Search />
+        <div className="topGainers"><TopGainersLosers /></div>
+        </>} />
+        <Route path="stocks" element={<Display />} />
       </Routes>
-      <TopGainersLosers></TopGainersLosers>
+      
     </div>
   );
 }

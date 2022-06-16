@@ -9,6 +9,11 @@ display:flex
 }
 
 
+.gainers{
+  margin:10px
+}
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
