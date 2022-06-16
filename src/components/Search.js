@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SearchResults from "./SearchResults";
-import '../Search.css'
+import '../css/Search.css'
 
 var axios = require("axios").default;
 

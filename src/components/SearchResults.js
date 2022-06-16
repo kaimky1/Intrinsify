@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Display from "./Display";
 import { Link } from "react-router-dom";
-import '../SearchResult.css'
+import '../css/SearchResult.css'
 
 const SearchResults = (props) => {
   const [showMe, setShowMe] = useState(false);

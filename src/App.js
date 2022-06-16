@@ -1,4 +1,4 @@
-import "./App.css";
+import "./css/App.css";
 import React, { useState, useEffect } from "react";
 import Search from "./components/Search";
 import { Routes, Route } from "react-router-dom";
@@ -13,6 +13,7 @@ function App() {
         <Route index element={<>
         <Search />
         <div className="topGainers"><TopGainersLosers /></div>
+        <div className="topLosers"><TopGainersLosers /></div>
         </>} />
         <Route path="stocks" element={<Display />} />
       </Routes>
