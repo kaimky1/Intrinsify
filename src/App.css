@@ -1,6 +1,5 @@
  .App {
-border-style: solid;
-padding: 10px;
+display:flex
 }
 
 .dataInfo{

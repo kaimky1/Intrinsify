@@ -1,0 +1,9 @@
+.btn-primary {
+    background-color: #30a878 !important;
+    --btn-bg: #30a878 !important;
+    border-color: #ffd818 !important;
+  }
+
+  .resultsCard{
+    display: flex;
+  }

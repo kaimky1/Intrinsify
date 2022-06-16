@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Display from "./Display";
 import { Link } from "react-router-dom";
+import '../SearchResult.css'
 
 const SearchResults = (props) => {
   const [showMe, setShowMe] = useState(false);
@@ -11,9 +12,13 @@ const SearchResults = (props) => {
   const { elementName, elementSymbol } = props;
   return (
     <div>
-      <h3>
-        Company Name: {elementName}, Ticker Symbol: {elementSymbol}
-      </h3>
+      <div className="card" style={{"width": "50rem"}}>
+      <h5 class="card-title">
+        Company Name: {elementName}
+      </h5>
+      <h6 class="card-subtitle">
+        Ticker Symbol: {elementSymbol}
+      </h6>
       <Link to="/stocks">
         <button
           type="button"
@@ -23,6 +28,7 @@ const SearchResults = (props) => {
           Click for more details
         </button>
       </Link>
+      </div>
       <div>
         {showMe && (
           <Display elementName={elementName} elementSymbol={elementSymbol} />
