@@ -23,7 +23,6 @@ const Display = () => {
         `https://financialmodelingprep.com/api/v3/ratios-ttm/${elementSymbol}?apikey=${process.env.REACT_APP_API_KEY}`
       )
       .then((response) => {
-        console.log("responsedata", response.data[0]);
         setPost(response.data[0]);
       })
       .catch(function (error) {
@@ -38,8 +37,8 @@ const Display = () => {
         `https://financialmodelingprep.com/api/v3/quote/${elementSymbol}?apikey=${process.env.REACT_APP_API_KEY}`
       )
       .then((response) => {
-        console.log("responsedata", response.data[0]);
         setStockPrice(response.data[0]);
+        console.log(stockPrice)
       })
       .catch(function (error) {
         console.error(error);
@@ -53,7 +52,6 @@ const Display = () => {
         `https://financialmodelingprep.com/api/v3/profile/${elementSymbol}?apikey=${process.env.REACT_APP_API_KEY}`
       )
       .then((response) => {
-        console.log("responsedata", response.data[0]);
         setAboutStock(response.data[0]);
       })
       .catch(function (error) {
@@ -68,7 +66,6 @@ const Display = () => {
         `https://financialmodelingprep.com/api/v3/income-statement/${elementSymbol}?limit=120&apikey=${process.env.REACT_APP_API_KEY}`
       )
       .then((response) => {
-        console.log("responsedata", response.data[0]);
         setStockFinancials(response.data[0]);
       })
       .catch(function (error) {
@@ -84,7 +81,6 @@ const Display = () => {
         `https://financialmodelingprep.com/api/v3/rating/${elementSymbol}?apikey=${process.env.REACT_APP_API_KEY}`
       )
       .then((response) => {
-        console.log("responsedata", response.data[0]);
         setRating(response.data[0]);
       })
       .catch(function (error) {
@@ -99,7 +95,6 @@ const Display = () => {
         `https://financialmodelingprep.com/api/v3/grade/${elementSymbol}?limit=10&apikey=${process.env.REACT_APP_API_KEY}`
       )
       .then((response) => {
-        console.log("responsedata", response.data[0]);
         setGrade(response.data[0]);
       })
       .catch(function (error) {

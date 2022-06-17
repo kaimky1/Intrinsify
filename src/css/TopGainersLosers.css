@@ -30,14 +30,17 @@
 .topGainers{
     height: 300px;
     width:100%;
-    overflow-y:auto
+    overflow-y:auto;
+    background-color: rgb(235, 234, 234);
+    
 }
 
 .topLosers{
     height: 300px;
     width:100%;
     overflow-y:auto;
-    overflow-x:hidden; 
+    overflow-x:hidden;
+    background-color:rgb(235, 234, 234);
 }
 
 #topGainHeader{
