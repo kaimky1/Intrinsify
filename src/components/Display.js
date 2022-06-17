@@ -5,6 +5,8 @@ import "../css/Display.css";
 var axios = require("axios").default;
 
 const Display = () => {
+  
+
   const { elementSymbol } = useParams();
   const [post, setPost] = useState([]);
   const [data, setData] = useState([]);
@@ -12,7 +14,7 @@ const Display = () => {
   const [aboutStock, setAboutStock] = useState([]);
   const [stockFinancials, setStockFinancials] = useState([]);
   const [rating, setRating] = useState([]);
-  const [grade, setGrade] = useState([])
+  const [grade, setGrade] = useState([]);
 
   //API Calls
 
@@ -38,7 +40,7 @@ const Display = () => {
       )
       .then((response) => {
         setStockPrice(response.data[0]);
-        console.log(stockPrice)
+        console.log(stockPrice);
       })
       .catch(function (error) {
         console.error(error);
@@ -102,6 +104,7 @@ const Display = () => {
       });
   }, []);
 
+
   return (
     <div className="dataInfo">
       <h2 id="stockName">{stockPrice.name}</h2>
@@ -135,14 +138,22 @@ const Display = () => {
         ratio is far off from the industry average, it might eventually - but
         not necessarily - realign with the industry average."
       </p>
-      <h6>Average Analyst Rating as of {rating.date}:{" " + rating.ratingDetailsDCFScore + " "}</h6>
+      <h6>
+        Average Analyst Rating as of {rating.date}:
+        {" " + rating.ratingDetailsDCFScore + " "}
+      </h6>
       <h6>
         DCF (Discounted Cash Flow) Reccommendation as of {rating.date}:{" "}
         {rating.ratingDetailsDCFRecommendation}
       </h6>
       <h6>52 Week Range: {aboutStock.range}</h6>
-      <h6>Grade as of {grade.date} by {grade.gradingCompany}: {grade.newGrade} </h6>
-      <p>**The grade info is pulled from most recent company that has graded the stock.**</p>
+      <h6>
+        Grade as of {grade.date} by {grade.gradingCompany}: {grade.newGrade}{" "}
+      </h6>
+      <p>
+        **The grade info is pulled from most recent company that has graded the
+        stock.**
+      </p>
       <button id="watchlist">Add To Watchlist</button>
     </div>
   );
