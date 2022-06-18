@@ -31,7 +31,7 @@ function App() {
           }
         />
         <Route path="/:elementSymbol" element={<div><Display /><Graph /></div>} />
-        <Route path="register" element={<Register />}/>
+        <Route path="/register" element={<Register />}/>
       </Routes>
     </div>
   );
