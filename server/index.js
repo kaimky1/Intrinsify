@@ -1,4 +1,4 @@
-require('dotenv').config
+require('dotenv').config();
 const express = require('express')
 const cors = require('cors')
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
@@ -16,18 +16,28 @@ app.use(cors())
 app.post('/seed', seed)
 
 
-app.get('/', (req,res) => {
-    sendTextMessage();
-})
+// app.get('/', (req,res) => {
+//     sendTextMessage();
+// })
+
+app.post('/', (req, res) => {
+    console.log(req.body)
+    client
+    .messages
+    .create(req.body)
+    .then(message => console.log(message.sid, 'Message sent'))
+    res.status(200).send("Message Sent!")
+}
+)
 
 const sendTextMessage = () => {
     client.messages
     .create({
-       body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
+       body: 'Good day',
        from: '+19807377433',
        to: '+18089711951'
      })
-    .then(message => console.log(message.sid));
+    .then(message => console.log(message.sid, 'Message sent'));
 }
 
 app.listen(SERVER_PORT, () => console.log(`up on ${SERVER_PORT}`))
