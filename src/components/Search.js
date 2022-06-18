@@ -39,7 +39,6 @@ const Search = () => {
       </div>
     );
   });
-  console.log(post)
 
   let bodyObj = {
     body: JSON.stringify(post),
