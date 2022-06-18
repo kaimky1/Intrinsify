@@ -6,6 +6,7 @@ import Display from "./components/Display";
 import TopGainersLosers from "./components/TopGainersLosers";
 import TopLosers from "./components/TopLosers";
 import Graph from "./components/Graph";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           }
         />
         <Route path="/:elementSymbol" element={<div><Display /><Graph /></div>} />
+        <Route path="register" element={<Register />}/>
       </Routes>
     </div>
   );
