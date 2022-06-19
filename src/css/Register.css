@@ -6,24 +6,25 @@
     box-sizing: border-box;
 }
 
-html {
+ /* html {
     font-family: 'Nunito', sans-serif;
     font-size: 22px;
     color: #fff;
-}
+}  */
 
-body {
+ .registerPage {
     min-height: 100vh;
     background-color: #D6F6DD;
+    width:100%
 }
 
-.App {
+.register {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh; 
-  padding: 1rem 0.5rem;
+  padding: 1rem 13.5rem;
 }
 
 section {

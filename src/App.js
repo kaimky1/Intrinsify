@@ -8,6 +8,7 @@ import TopLosers from "./components/TopLosers";
 import Graph from "./components/Graph";
 import Register from "./components/Register";
 
+
 function App() {
   return (
     <div className="App">
@@ -31,7 +32,9 @@ function App() {
           }
         />
         <Route path="/:elementSymbol" element={<div><Display /><Graph /></div>} />
-        <Route path="/register" element={<Register />}/>
+        <Route path="/register" element={<div className="registerPage">
+          <Register />
+          </div>}/>
       </Routes>
     </div>
   );

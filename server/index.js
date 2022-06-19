@@ -13,12 +13,20 @@ const { seed } = require('./seed')
 app.use(express.json())
 app.use(cors())
 
+
+const {
+    login,
+    register,
+    favorite,
+    favoriteSkin,
+    getFavorite,
+    getfavoriteSkin, 
+    deleteFavorite,
+    deleteFavoriteSkin
+
+} = require('./controller.js')
+
 app.post('/seed', seed)
-
-
-// app.get('/', (req,res) => {
-//     sendTextMessage();
-// })
 
 app.post('/', (req, res) => {
     console.log(req.body)
@@ -29,6 +37,8 @@ app.post('/', (req, res) => {
     res.status(200).send("Message Sent!")
 }
 )
+
+app.post('/register', register)
 
 const sendTextMessage = () => {
     client.messages

@@ -11,7 +11,7 @@ module.exports = {
             username varchar(20),
             first_name varchar(100), 
             last_name varchar(100),  
-            password varchar(30)
+            password varchar(100)
         );
         create table users_fav (
             users_fav serial primary key, 
