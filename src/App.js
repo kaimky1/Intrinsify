@@ -7,14 +7,14 @@ import TopGainersLosers from "./components/TopGainersLosers";
 import TopLosers from "./components/TopLosers";
 import Graph from "./components/Graph";
 import Register from "./components/Register";
-
+import Login from "./components/Login";
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route
-          index
+          path="/search"
           element={
             <>
               <Search />
@@ -31,10 +31,31 @@ function App() {
             </>
           }
         />
-        <Route path="/:elementSymbol" element={<div><Display /><Graph /></div>} />
-        <Route path="/register" element={<div className="registerPage">
-          <Register />
-          </div>}/>
+        <Route
+          path="/:elementSymbol"
+          element={
+            <div>
+              <Display />
+              <Graph />
+            </div>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <div className="registerPage">
+              <Register />
+            </div>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <div className="loginPage">
+              <Login />
+            </div>
+          }
+        />
       </Routes>
     </div>
   );
