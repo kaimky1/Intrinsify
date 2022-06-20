@@ -105,6 +105,18 @@ const Display = () => {
   }, []);
 
 
+  const clickHandler = () => {
+    let body = {
+      stockTicker: elementSymbol
+    }
+    axios.post(`http://localhost:4004/favorite`, body)
+    .then( res => {
+      console.log("hit", res)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
   return (
     <div className="dataInfo">
       <h2 id="stockName">{stockPrice.name}</h2>
@@ -154,7 +166,7 @@ const Display = () => {
         **The grade info is pulled from most recent company that has graded the
         stock.**
       </p>
-      <button id="watchlist">Add To Watchlist</button>
+      <button id="watchlist" onClick={clickHandler}>Add To Watchlist</button>
     </div>
   );
 };

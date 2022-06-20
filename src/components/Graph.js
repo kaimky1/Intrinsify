@@ -31,7 +31,7 @@ const Graph = () => {
         );
         setPrices(
           response.data
-            .slice(0, 364)
+            .slice(0, 78)
             .reverse()
             .map((element, index) => {
               return element.close;
@@ -151,7 +151,7 @@ const Graph = () => {
         );
         setPrices(
           response.data
-            .slice(0, 364)
+            .slice(0, 78)
             .reverse()
             .map((element, index) => {
               return element.close;

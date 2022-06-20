@@ -25,7 +25,20 @@ module.exports = {
         `).then(dbRes => res.status(200).send(dbRes[0]))
         .catch(err => console.log(err))
     },
-    
+    favorite: (req, res) => {
+        console.log(req.body)
+        const { stockTicker } = req.body;
+        
+        console.log("hit favorite")
+        sequelize.query(`
+        INSERT INTO users_fav(stock_ticker) 
+        VALUES( '${
+            stockTicker
+        }')
+        `).then(dbRes => res.status(200).send(dbRes[0]))
+        .catch(err => console.log(err))
+    }
+
 
 
 }
