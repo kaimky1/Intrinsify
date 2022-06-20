@@ -25,6 +25,7 @@ module.exports = {
         `).then(dbRes => res.status(200).send(dbRes[0]))
         .catch(err => console.log(err))
     },
+    
 
 
 }
