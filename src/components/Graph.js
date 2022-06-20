@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 import { useParams } from "react-router-dom";
+import '../css/Graph.css'
 
 var axios = require("axios").default;
 
@@ -184,10 +185,15 @@ const Graph = () => {
           maintainAspectRatio: false,
         }}
       />
-      <button onClick={clickHandler1D}> 1D </button>
-      <button onClick={clickHandler1}>1M</button>
-      <button onClick={clickHandler}>3M</button>
-      <button onClick={clickHandler1Y}>1Y</button>
+      <div id="graphButtons">
+
+      <div className="btn-group btn-group-sm" role="group" aria-label="Basic example" >
+        <button onClick={clickHandler1D} type="button" className="btn btn-secondary"> 1D </button>
+        <button onClick={clickHandler1}type="button" className="btn btn-secondary">1M</button>
+        <button onClick={clickHandler} type="button" className="btn btn-secondary">3M</button>
+        <button onClick={clickHandler1Y} type="button" className="btn btn-secondary">1Y</button>
+      </div>
+      </div>
     </div>
   );
 };
