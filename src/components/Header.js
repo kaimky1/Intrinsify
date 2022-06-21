@@ -4,14 +4,28 @@ import logo from "../photos/Intrinsify-preview.png";
 import "../css/Header.css";
 
 const Header = () => {
-  let currentUser = false;
+  const [currentUser, setCurrentUser ] = useState(false);
+  let username = localStorage.getItem("username");
 
+  
+// useEffect(() => {
+//     if(username.length > 0){
+//       setCurrentUser(true)
+//     }
+//   }, [currentUser])
+  
+  const logoutHandler = () => {
+    localStorage.removeItem('username')
+    setCurrentUser(false)
+  }
   const [showMe, setShowMe] = useState(false);
   const auth = () => {
     if (currentUser === true) {
       setShowMe(!showMe);
     }
   };
+
+  
   const authButton = () => {
     if (currentUser === false) {
       return (
@@ -47,12 +61,13 @@ const Header = () => {
         <div>
           <div className="login-sign">
             <div class="navbar-nav ml-auto action-buttons">
-              <Link to="/register">
+              <Link to="/" >
                 <div class="nav-item dropdown">
                   <a
                     href="#"
                     data-toggle="dropdown"
                     class="btn btn-primary dropdown-toggle sign-up-btn"
+                    onClick={logoutHandler}
                   >
                     Logout
                   </a>

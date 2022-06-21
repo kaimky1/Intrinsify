@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect, useContext } from "react";
 // import AuthContext from "./context/AuthProvider";
+import { useNavigate } from "react-router-dom"
 import "../css/Register.css";
 import swal from "sweetalert";
 
@@ -8,15 +9,18 @@ var axios = require("axios").default;
 
 const LOGIN_URL = "/auth";
 
+
 const Login = () => {
   // const { setAuth } = useContext(AuthContext);
   const userRef = useRef();
   const errRef = useRef();
+  const navigate = useNavigate();
 
   const [user, setUser] = useState("");
   const [pwd, setPwd] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
+  const [currentUser, setCurrentUser] = useState(false)
 
   useEffect(() => {
     userRef.current.focus();
@@ -36,9 +40,12 @@ const Login = () => {
     axios
       .post(`http://localhost:4004/login`, body)
       .then((res) => {
-        // const { username } = res.data[0];
-        // window.localStorage.setItem("username", username);
+        console.log(res.data, "resdata")
+        const { username } = res.data;
+        window.localStorage.setItem("username", username);
+        navigate('/search')
         swal("Login successful", "Your journey awaits", "success")
+
          
       }).catch((err) => {
         alert(err);

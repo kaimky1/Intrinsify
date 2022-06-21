@@ -41,7 +41,7 @@ module.exports = {
         }')
         `).then(dbRes => res.status(200).send(dbRes[0]))
         .catch(err => console.log(err))
-    }
+    },
 
 
   login: (req, res) => {
@@ -50,7 +50,7 @@ module.exports = {
     sequelize
       .query(
         `
-    SELECT password FROM users
+    SELECT password, username FROM users
     WHERE username = '${username}'
 `
       )
