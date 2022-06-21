@@ -32,7 +32,7 @@ function App() {
           }
         />
         <Route
-          path="/:elementSymbol"
+          path="/search/:elementSymbol"
           element={
             <div>
               <Display />

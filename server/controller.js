@@ -24,11 +24,25 @@ module.exports = {
         `
             INSERT INTO users(username, first_name, last_name, password)
             VALUES('${username}', '${first_name}', '${last_name}', '${passwordHash}');
-        `
-      )
-      .then((dbRes) => res.status(200).send(dbRes[0]))
-      .catch((err) => console.log(err));
-  },
+        `).then(dbRes => res.status(200).send(dbRes[0]))
+        .catch(err => console.log(err))
+    },
+  
+  
+    favorite: (req, res) => {
+        console.log(req.body)
+        const { stockTicker } = req.body;
+        
+        console.log("hit favorite")
+        sequelize.query(`
+        INSERT INTO users_fav(stock_ticker) 
+        VALUES( '${
+            stockTicker
+        }')
+        `).then(dbRes => res.status(200).send(dbRes[0]))
+        .catch(err => console.log(err))
+    }
+
 
   login: (req, res) => {
     console.log("Logging In User");

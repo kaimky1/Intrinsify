@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 import { useParams } from "react-router-dom";
+import '../css/Graph.css'
 
 var axios = require("axios").default;
 
@@ -10,20 +11,20 @@ const Graph = () => {
   const [stats, setStats] = useState([]);
   const [dates, setDates] = useState([]);
   const [prices, setPrices] = useState([]);
-  const [label, setLabel] = useState("30-Day Stock Price")
+  const [label, setLabel] = useState("30-Day Stock Price");
 
   //Get daily stock close price for past 30 days.
   useEffect(() => {
     axios
       .get(
-        ` https://financialmodelingprep.com/api/v3/technical_indicator/daily/${elementSymbol}?period=10&type=ema&apikey=${process.env.REACT_APP_API_KEY}`
+        ` https://financialmodelingprep.com/api/v3/historical-chart/5min/${elementSymbol}?apikey=${process.env.REACT_APP_API_KEY}`
       )
       .then((response) => {
         console.log("responsedata", response.data);
         setStats(response.data);
         setDates(
           response.data
-            .slice(0, 29)
+            .slice(0, 78)
             .reverse()
             .map((element, index) => {
               return element.date;
@@ -31,13 +32,13 @@ const Graph = () => {
         );
         setPrices(
           response.data
-            .slice(0, 29)
+            .slice(0, 78)
             .reverse()
             .map((element, index) => {
               return element.close;
             })
         );
-        setLabel("30-Day Stock Price")
+        setLabel("1 Day Stock Price for ");
       })
       .catch(function (error) {
         console.error(error);
@@ -51,7 +52,6 @@ const Graph = () => {
         ` https://financialmodelingprep.com/api/v3/technical_indicator/daily/${elementSymbol}?period=10&type=ema&apikey=${process.env.REACT_APP_API_KEY}`
       )
       .then((response) => {
-        console.log("responsedata", response.data);
         setStats(response.data);
         setDates(
           response.data
@@ -69,7 +69,7 @@ const Graph = () => {
               return element.close;
             })
         );
-        setLabel("90-Day Stock Price")
+        setLabel("90-Day Stock Price");
       })
       .catch(function (error) {
         console.error(error);
@@ -82,7 +82,6 @@ const Graph = () => {
         ` https://financialmodelingprep.com/api/v3/technical_indicator/daily/${elementSymbol}?period=10&type=ema&apikey=${process.env.REACT_APP_API_KEY}`
       )
       .then((response) => {
-        console.log("responsedata", response.data);
         setStats(response.data);
         setDates(
           response.data
@@ -100,7 +99,7 @@ const Graph = () => {
               return element.close;
             })
         );
-        setLabel("30-Day Stock Price")
+        setLabel("30-Day Stock Price");
       })
       .catch(function (error) {
         console.error(error);
@@ -112,7 +111,6 @@ const Graph = () => {
         ` https://financialmodelingprep.com/api/v3/technical_indicator/daily/${elementSymbol}?period=10&type=ema&apikey=${process.env.REACT_APP_API_KEY}`
       )
       .then((response) => {
-        console.log("responsedata", response.data);
         setStats(response.data);
         setDates(
           response.data
@@ -130,7 +128,37 @@ const Graph = () => {
               return element.close;
             })
         );
-        setLabel("1 Year Stock Price")
+        setLabel("1 Year Stock Price");
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  };
+  const clickHandler1D = () => {
+    axios
+      .get(
+        ` https://financialmodelingprep.com/api/v3/historical-chart/5min/${elementSymbol}?apikey=${process.env.REACT_APP_API_KEY}`
+      )
+      .then((response) => {
+        console.log("responsedata", response.data);
+        setStats(response.data);
+        setDates(
+          response.data
+            .slice(0, 78)
+            .reverse()
+            .map((element, index) => {
+              return element.date;
+            })
+        );
+        setPrices(
+          response.data
+            .slice(0, 78)
+            .reverse()
+            .map((element, index) => {
+              return element.close;
+            })
+        );
+        setLabel("1 Day Stock Price for " + new Date().toJSON().slice(0, 10));
       })
       .catch(function (error) {
         console.error(error);
@@ -157,10 +185,15 @@ const Graph = () => {
           maintainAspectRatio: false,
         }}
       />
+      <div id="graphButtons">
 
-      <button onClick={clickHandler1}>1M</button>
-      <button onClick={clickHandler}>3M</button>
-      <button onClick={clickHandler1Y}>1Y</button>
+      <div className="btn-group btn-group-sm" role="group" aria-label="Basic example" >
+        <button onClick={clickHandler1D} type="button" className="btn btn-secondary"> 1D </button>
+        <button onClick={clickHandler1}type="button" className="btn btn-secondary">1M</button>
+        <button onClick={clickHandler} type="button" className="btn btn-secondary">3M</button>
+        <button onClick={clickHandler1Y} type="button" className="btn btn-secondary">1Y</button>
+      </div>
+      </div>
     </div>
   );
 };
