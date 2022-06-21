@@ -8,6 +8,9 @@ import TopLosers from "./components/TopLosers";
 import Graph from "./components/Graph";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import Home from "./components/Home";
+import News from "./components/News";
+
 
 function App() {
   return (
@@ -56,6 +59,12 @@ function App() {
             </div>
           }
         />
+        <Route path="/home"
+        element={<Home />} />
+        <Route path="/news"
+        element={<News />} />
+        
+
       </Routes>
     </div>
   );

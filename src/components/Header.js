@@ -61,7 +61,7 @@ const Header = () => {
         <div>
           <div className="login-sign">
             <div class="navbar-nav ml-auto action-buttons">
-              <Link to="/" >
+              <Link to="/home" >
                 <div class="nav-item dropdown">
                   <a
                     href="#"
@@ -99,7 +99,7 @@ const Header = () => {
           class="collapse navbar-collapse justify-content-start"
         >
           <div class="navbar-nav">
-            <Link to="/search">
+            <Link to="/home">
               <a href="#" className="nav-item nav-link">
                 Home
               </a>
