@@ -10,6 +10,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Home from "./components/Home";
 import News from "./components/News";
+import About from "./components/About";
 
 
 function App() {
@@ -63,7 +64,8 @@ function App() {
         element={<Home />} />
         <Route path="/news"
         element={<News />} />
-        
+        <Route path ="/about" element={<About />} />
+
 
       </Routes>
     </div>

@@ -104,7 +104,7 @@ const Header = () => {
                 Home
               </a>
             </Link>
-            <Link to="/search">
+            <Link to="/about">
               <a href="#" className="nav-item nav-link">
                 About
               </a>
@@ -115,7 +115,7 @@ const Header = () => {
                 Search
               </a>
             </Link>
-            <Link to="/search">
+            <Link to="/news">
               <a href="#" className="nav-item nav-link active">
                 News
               </a>

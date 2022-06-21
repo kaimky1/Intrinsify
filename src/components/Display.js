@@ -20,6 +20,7 @@ const Display = () => {
 
   //Getting the P/E ratio
   useEffect(() => {
+    
     axios
       .get(
         `https://financialmodelingprep.com/api/v3/ratios-ttm/${elementSymbol}?apikey=${process.env.REACT_APP_API_KEY}`
