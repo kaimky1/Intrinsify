@@ -12,6 +12,7 @@ import Home from "./components/Home";
 import News from "./components/News";
 import About from "./components/About";
 import Header from "./components/Header";
+import Watchlist from "./components/Watchlist";
 
 export const UsernameContext = createContext();
 
@@ -70,6 +71,7 @@ console.log("username",username)
         <Route path="/news"
         element={<News />} />
         <Route path ="/about" element={<About />} />
+        <Route path ="/watchlist" element={<Watchlist />} />
 
 
       </Routes>

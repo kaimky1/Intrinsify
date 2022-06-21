@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "../css/Display.css";
+import swal from "sweetalert";
 
 var axios = require("axios").default;
 
@@ -16,6 +17,10 @@ const Display = () => {
   const [rating, setRating] = useState([]);
   const [grade, setGrade] = useState([]);
 
+
+  //get localstorage ID
+
+  const userID = localStorage.getItem("userID")
   //API Calls
 
   //Getting the P/E ratio
@@ -108,14 +113,18 @@ const Display = () => {
 
   const clickHandler = () => {
     let body = {
-      stockTicker: elementSymbol
+      stockTicker: elementSymbol,
+      userID: userID
     }
     axios.post(`http://localhost:4004/favorite`, body)
     .then( res => {
       console.log("hit", res)
+      swal("Added To Watchlist", `${elementSymbol} was added`, 'success')
+
     })
     .catch(err => {
-      console.log(err)
+      console.log(err.response)
+      swal("Something went wrong", `${err.response.data}`, 'error')
     })
   }
   return (

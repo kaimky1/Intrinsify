@@ -43,8 +43,9 @@ const Login = () => {
       .post(`http://localhost:4004/login`, body)
       .then((res) => {
         console.log(res.data, "resdata")
-        const { username } = res.data;
+        const { username, user_id } = res.data;
         window.localStorage.setItem("username", username);
+        window.localStorage.setItem("userID", user_id);
         navigate('/search')
         setUsername(true)
         swal("Login successful", "Your journey awaits", "success")

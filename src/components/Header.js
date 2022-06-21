@@ -20,6 +20,7 @@ const Header = () => {
   
   const logoutHandler = () => {
     localStorage.removeItem('username')
+    localStorage.removeItem('userID')
     setUsername(false)
     setShowMe(false)
   }
@@ -29,7 +30,7 @@ const Header = () => {
 
   const auth = () => {
     if (username === true) {
-      setShowMe(!showMe);
+      setShowMe(true);
     }
   };
 console.log("showMe",showMe)
@@ -132,7 +133,7 @@ console.log("showMe",showMe)
             {useEffect(() => {auth()}
             , [username])}
             {showMe && (
-              <Link to="/search">
+              <Link to="/watchlist">
                 {" "}
                 <a href="#" className="nav-item nav-link active">
                   Watchlist
