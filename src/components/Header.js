@@ -4,50 +4,57 @@ import logo from "../photos/Intrinsify-preview.png";
 import "../css/Header.css";
 
 const Header = () => {
-  const [currentUser, setCurrentUser ] = useState(false);
-  let username = localStorage.getItem("username");
-
   
-// useEffect(() => {
-//     if(username.length > 0){
-//       setCurrentUser(true)
-//     }
-//   }, [currentUser])
+  const [username, setUsername] = useState()
+
+  let checkUsername = Boolean(localStorage.getItem("username"))
+
+  useEffect(()=> {
+    setUsername(checkUsername)
+  }, [checkUsername])
+
+console.log("username",username)
+
   
   const logoutHandler = () => {
     localStorage.removeItem('username')
-    setCurrentUser(false)
+    setUsername(false)
+    setShowMe(false)
   }
+
+
   const [showMe, setShowMe] = useState(false);
+
   const auth = () => {
-    if (currentUser === true) {
+    if (username === true) {
       setShowMe(!showMe);
     }
   };
-
+console.log("showMe",showMe)
   
   const authButton = () => {
-    if (currentUser === false) {
+    if (username === false) {
       return (
         <div className="login-sign">
-          <div class="navbar-nav ml-auto action-buttons">
+          <div className="navbar-nav ml-auto action-buttons">
             <Link to="/login">
-              <div class="nav-item dropdown">
+              <div className="nav-item dropdown">
                 <a
                   href="#"
                   data-toggle="dropdown"
-                  class="nav-link dropdown-toggle mr-4"
+                  className="nav-link dropdown-toggle mr-4"
+                  
                 >
                   Login
                 </a>
               </div>
             </Link>
             <Link to="/register">
-              <div class="nav-item dropdown">
+              <div className="nav-item dropdown">
                 <a
                   href="#"
                   data-toggle="dropdown"
-                  class="btn btn-primary dropdown-toggle sign-up-btn"
+                  className="btn btn-primary dropdown-toggle sign-up-btn"
                 >
                   Sign up
                 </a>
@@ -60,13 +67,13 @@ const Header = () => {
       return (
         <div>
           <div className="login-sign">
-            <div class="navbar-nav ml-auto action-buttons">
+            <div className="navbar-nav ml-auto action-buttons">
               <Link to="/home" >
-                <div class="nav-item dropdown">
+                <div className="nav-item dropdown">
                   <a
                     href="#"
                     data-toggle="dropdown"
-                    class="btn btn-primary dropdown-toggle sign-up-btn"
+                    className="btn btn-primary dropdown-toggle sign-up-btn"
                     onClick={logoutHandler}
                   >
                     Logout
@@ -82,8 +89,8 @@ const Header = () => {
 
   return (
     <div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a href="#" class="navbar-brand">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <a href="#" className="navbar-brand">
           Intrin<b>$</b>ify
         </a>
         <button
@@ -96,9 +103,9 @@ const Header = () => {
         </button>
         <div
           id="navbarCollapse"
-          class="collapse navbar-collapse justify-content-start"
+          className="collapse navbar-collapse justify-content-start"
         >
-          <div class="navbar-nav">
+          <div className="navbar-nav">
             <Link to="/home">
               <a href="#" className="nav-item nav-link">
                 Home
@@ -120,9 +127,8 @@ const Header = () => {
                 News
               </a>
             </Link>
-            {useEffect(() => {
-              auth();
-            }, [currentUser])}
+            {useEffect(() => {auth()}
+            , [username])}
             {showMe && (
               <Link to="/search">
                 {" "}

@@ -5,13 +5,17 @@ import App from "./App";
 import {BrowserRouter } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css';
 import Header from "./components/Header";
+import {createContext, useState} from "react";
+
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+export const loggedInContext = createContext();
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Header />
       <App />
     </BrowserRouter>
   </React.StrictMode>

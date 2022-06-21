@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import SearchResults from "./SearchResults";
 import "../css/Search.css";
 import { SupportingDocumentList } from "twilio/lib/rest/trusthub/v1/supportingDocument";
+import TopGainersLosers from "./TopGainersLosers";
+import TopLosers from "./TopLosers";
 
 var axios = require("axios").default;
 
@@ -42,20 +44,23 @@ const Search = () => {
 
   let bodyObj = {
     body: JSON.stringify(post),
-       from: '+19807377433',
-       to: '+18089711951'
-  }
+    from: "+19807377433",
+    to: "+18089711951",
+  };
   const textClickHandler = () => {
-    axios.post(`http://localhost:4004/`, bodyObj)
-    .then( res => {
-      console.log(res)
-    }).catch(err => {
-      console.log(err)
-    })
-  }
+    axios
+      .post(`http://localhost:4004/`, bodyObj)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="search">
+      <div>
       <input
         className="stockInput"
         placeholder="Search for a stock"
@@ -66,6 +71,19 @@ const Search = () => {
       </button>
       <button onClick={textClickHandler}>Send Me a Text</button>
       {searchResults}
+      </div>
+      <>
+      <div className="GainsLosses">
+        <h1 id="topGainHeader">Top Gainers</h1>
+        <div className="topGainers">
+          <TopGainersLosers />
+        </div>
+        <h1 id="topLossHeader">Top Losers</h1>
+        <div className="topLosers">
+          <TopLosers />
+        </div>
+      </div>
+      </>
     </div>
   );
 };

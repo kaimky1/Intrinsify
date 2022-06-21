@@ -11,27 +11,20 @@ import Login from "./components/Login";
 import Home from "./components/Home";
 import News from "./components/News";
 import About from "./components/About";
+import Header from "./components/Header";
 
 
 function App() {
   return (
     <div className="App">
+      <Header />
       <Routes>
         <Route
           path="/search"
           element={
             <>
               <Search />
-              <div className="GainsLosses">
-                <h1 id="topGainHeader">Top Gainers</h1>
-                <div className="topGainers">
-                  <TopGainersLosers />
-                </div>
-                <h1 id="topLossHeader">Top Losers</h1>
-                <div className="topLosers">
-                  <TopLosers />
-                </div>
-              </div>
+             
             </>
           }
         />
