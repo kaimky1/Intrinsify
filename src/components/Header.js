@@ -4,7 +4,7 @@ import logo from "../photos/Intrinsify-preview.png";
 import "../css/Header.css";
 
 const Header = () => {
-  let currentUser = true;
+  let currentUser = false;
 
   const [showMe, setShowMe] = useState(false);
   const auth = () => {
@@ -13,7 +13,7 @@ const Header = () => {
     }
   };
   const authButton = () => {
-    if (currentUser === null) {
+    if (currentUser === false) {
       return (
         <div className="login-sign">
           <div class="navbar-nav ml-auto action-buttons">

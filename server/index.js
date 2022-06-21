@@ -39,6 +39,7 @@ app.post('/', (req, res) => {
 )
 
 app.post('/register', register)
+app.post('/login', login)
 
 const sendTextMessage = () => {
     client.messages
