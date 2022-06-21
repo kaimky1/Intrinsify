@@ -1,4 +1,5 @@
 const bcrypt = require("bcryptjs");
+const e = require("cors");
 require("dotenv").config();
 const { DATABASE_URL } = process.env;
 const Sequelize = require("sequelize");
@@ -93,21 +94,22 @@ module.exports = {
         }
       })
       .catch((err) => console.log(err));
-
-    // for (let i = 0; i < users.length; i++) {
-    //   if (users[i].username === username) {
-    //     const existingPassword = bcrypt.compareSync(
-    //       password,
-    //       users[i].passwordHash
-    //     );
-    //     if (existingPassword) {
-    //       const cat = { ...users[i] };
-    //       delete cat.passwordHash;
-    //       res.status(200).send(cat);
-    //     } else {
-    //       res.status(400).send("User not found.");
-    //     }
-    //   }
-    // }
   },
+
+  getFavorite: (req, res) => {
+    const {userID} = req.query;
+    console.log("userID", userID)
+
+    console.log(req.query, "reqquery")
+    console.log(req.params, "reqparams")
+    console.log(req.body, "reqbody")
+    sequelize.query(
+      `SELECT stock_ticker
+      FROM users_fav
+      WHERE user_id = ${userID}`
+    ).then(dbRes => {
+      console.log(dbRes)
+      res.status(200).send(dbRes[0])})
+    .catch(err => console.log(err))
+   }
 };

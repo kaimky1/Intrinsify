@@ -42,6 +42,7 @@ app.post('/register', register)
 app.post('/login', login)
 
 app.post('/favorite', favorite)
+app.get('/getFavorite', getFavorite)
 
 const sendTextMessage = () => {
     client.messages
