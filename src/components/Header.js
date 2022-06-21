@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../photos/Intrinsify-preview.png";
 import "../css/Header.css";
+import { UsernameContext } from "../App";
 
 const Header = () => {
   
-  const [username, setUsername] = useState()
+  const {username, setUsername} = useContext(UsernameContext)
+//   const [username, setUsername] = useState()
 
-  let checkUsername = Boolean(localStorage.getItem("username"))
+//   let checkUsername = Boolean(localStorage.getItem("username"))
 
-  useEffect(()=> {
-    setUsername(checkUsername)
-  }, [checkUsername])
+//   useEffect(()=> {
+//     setUsername(checkUsername)
+//   }, [checkUsername])
 
-console.log("username",username)
+// console.log("username",username)
 
   
   const logoutHandler = () => {

@@ -1,5 +1,5 @@
 import "./css/App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import Search from "./components/Search";
 import { Routes, Route } from "react-router-dom";
 import Display from "./components/Display";
@@ -13,10 +13,22 @@ import News from "./components/News";
 import About from "./components/About";
 import Header from "./components/Header";
 
+export const UsernameContext = createContext();
 
 function App() {
+  const [username, setUsername] = useState()
+
+  let checkUsername = Boolean(localStorage.getItem("username"))
+
+  useEffect(()=> {
+    setUsername(checkUsername)
+  }, [checkUsername])
+
+console.log("username",username)
+
   return (
     <div className="App">
+      <UsernameContext.Provider value={{username, setUsername}}>
       <Header />
       <Routes>
         <Route
@@ -61,6 +73,7 @@ function App() {
 
 
       </Routes>
+      </UsernameContext.Provider>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { useRef, useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom"
 import "../css/Register.css";
 import swal from "sweetalert";
+import { UsernameContext } from "../App";
 
 
 var axios = require("axios").default;
@@ -11,7 +12,8 @@ const LOGIN_URL = "/auth";
 
 
 const Login = () => {
-  // const { setAuth } = useContext(AuthContext);
+  const {username, setUsername} = useContext(UsernameContext)
+  
   const userRef = useRef();
   const errRef = useRef();
   const navigate = useNavigate();
@@ -44,6 +46,7 @@ const Login = () => {
         const { username } = res.data;
         window.localStorage.setItem("username", username);
         navigate('/search')
+        setUsername(true)
         swal("Login successful", "Your journey awaits", "success")
 
          
