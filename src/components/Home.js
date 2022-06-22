@@ -19,8 +19,7 @@ const Home = () => {
       </div>
       <div className="charts">
         <StockIndex />
-        Another Chart Here
-        Another Chart Here
+        <StockSector />
       </div>
     </div>
   );

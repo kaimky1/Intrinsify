@@ -60,10 +60,10 @@ form {
   flex-grow: 1;
 }
 
-a,
+/* a,
 a:visited {
   color: #fff;
-}
+} */
 
 input[type="text"],
 input[type="password"],

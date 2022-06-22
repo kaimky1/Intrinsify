@@ -27,8 +27,8 @@
 }
 .row.header {
   font-weight: 900;
-  color: #ffffff;
-  background: #ea6153;
+  color: black;
+  background: #d6f6dd;
   display: table-row;
 }
 .row.green {
@@ -84,5 +84,9 @@ b{
 
 .header{
   text-align: center;
+}
+.stockSectorTable{
+  height: 180px;
+  overflow-y:auto;
 }
 

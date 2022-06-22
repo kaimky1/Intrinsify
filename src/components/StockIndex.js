@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import HomeCSS from "../css/Home.module.css";
+
 var axios = require("axios").default;
 
 
 const StockIndex = () => {
     const [post, setPost] = useState([]);
-
     useEffect(() => {
       axios
         .get(

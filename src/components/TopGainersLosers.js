@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../css/TopGainersLosers.css";
+import { Link } from "react-router-dom";
 var axios = require("axios").default;
 
 const TopGainersLosers = () => {
@@ -25,9 +26,11 @@ const TopGainersLosers = () => {
         <div className="gainerInfo" id="gainerSymbol">
           <p>{element.symbol}</p>
         </div>
-        <div className="gainerInfo" id="gainerName">
-          <p>{element.name} </p>
-        </div>
+        <Link to={`/search/${element.symbol}`}>
+          <div className="gainerInfo" id="gainerName">
+            <p>{element.name} </p>
+          </div>
+        </Link>
         <div className="gainerInfo" id="gainerChange">
           <p>+${element.change}</p>
         </div>
