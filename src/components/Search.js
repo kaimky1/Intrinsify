@@ -42,21 +42,6 @@ const Search = () => {
     );
   });
 
-  let bodyObj = {
-    body: JSON.stringify(post),
-    from: "+19807377433",
-    to: "+18089711951",
-  };
-  const textClickHandler = () => {
-    axios
-      .post(`http://localhost:4004/`, bodyObj)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
 
   return (
     <div className="search">
@@ -69,7 +54,6 @@ const Search = () => {
       <button type="button" onClick={clickHandler} className="btn btn-success">
         Search
       </button>
-      <button onClick={textClickHandler}>Send Me a Text</button>
       {searchResults}
       </div>
       <>

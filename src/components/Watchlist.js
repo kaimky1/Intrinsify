@@ -1,6 +1,6 @@
-import { render } from "@testing-library/react";
 import React, { useEffect, useState, prevState } from "react";
-import '../css/Watchlist.css'
+import "../css/Watchlist.css";
+import StockCard from "./StockCard";
 
 var axios = require("axios").default;
 let userID = Number(window.localStorage.getItem("userID"));
@@ -8,7 +8,9 @@ let userID = Number(window.localStorage.getItem("userID"));
 const Watchlist = () => {
   const [post, setPost] = useState([]);
   const [stock, setStock] = useState([]);
+  const [number, setNumber] = useState("");
 
+  //API requests. One to backend and one to retrieve all the stocks in the watchlist.
   useEffect(() => {
     axios
       .get(`http://localhost:4004/getFavorite`, {
@@ -24,15 +26,14 @@ const Watchlist = () => {
       });
   }, []);
 
-  console.log(post, "post");
+
   const param = post.map((element) => element.stock_ticker);
 
-  console.log(param.join());
-  const stocks = post.map((element, index) => {
-    return <h6 key={index}>{element.stock_ticker}</h6>;
-  });
 
-
+//This logic here is to get an API call for each stock ticker in an array.
+  // const stocks = post.map((element, index) => {
+  //   return <StockCard element={element} />;
+  // });
 
   useEffect(() => {
     axios
@@ -42,7 +43,6 @@ const Watchlist = () => {
         }`
       )
       .then((res) => {
-        
         setStock(res.data);
       })
       .catch(function (error) {
@@ -50,28 +50,54 @@ const Watchlist = () => {
       });
   }, [post]);
 
- 
-
   let view = stock.map((element, index) => {
     return (
       <div key={index}>
         <div className="stockInfo">
           <p>{element.name}</p>
           <p>${element.price}</p>
-        <button type="button" className="btn btn-success btn-small">Get More Details</button>
-        <button type="button" className="btn btn-danger btn-small">Delete</button>
+          <button type="button" className="btn btn-success btn-small">
+            Get More Details
+          </button>
+          <button type="button" className="btn btn-danger btn-small">
+            Delete
+          </button>
         </div>
       </div>
     );
   });
 
+  // The code block below will create the body object and send text to the desired phone number.
+  const body = (stock) => {
+    let text = "";
+    for (let i = 0; i < stock.length; i++) {
+      text += `Stock Name: ${stock[i].name} Stock Price: ${stock[i].price} `;
+    }
+    return text;
+  };
+  let bodyObj = {
+    body: body(stock),
+    from: `+19807377433`,
+    to: `${number}`,
+  };
+  const textClickHandler = () => {
+    axios
+      .post(`http://localhost:4004/`, bodyObj)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div>
       <h1>Watchlist</h1>
-      <input type="tel"></input>
+      <input type="tel" onChange={(e) => setNumber(e.target.value)}></input>
       <small>Format: +1123-456-7890</small>
-      <button>Send Me Text Updates</button>
+      <button onClick={textClickHandler}>Send Me Text Updates</button>
       <div>{view}</div>
+      {stocks}
     </div>
   );
 };

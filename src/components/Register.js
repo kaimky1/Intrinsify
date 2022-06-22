@@ -68,44 +68,6 @@ const Register = () => {
         swal("Oh-oh, Looks like there was an error", err, "error");
       });
   };
-  //   const handleSubmit = async (e) => {
-  //     e.preventDefault();
-  //     // if button enabled with JS hack
-  //     const v1 = USER_REGEX.test(user);
-  //     const v2 = PWD_REGEX.test(pwd);
-  //     if (!v1 || !v2) {
-  //         setErrMsg("Invalid Entry");
-  //         return;
-  //     }
-  //     try {
-  //         const response = await axios.post(REGISTER_URL,
-  //             JSON.stringify({ user, pwd }),
-  //             {
-  //                 headers: { 'Content-Type': 'application/json' },
-  //                 withCredentials: true
-  //             }
-  //         );
-  //         console.log(response?.data);
-  //         console.log(response?.accessToken);
-  //         console.log(JSON.stringify(response))
-  //         setSuccess(true);
-  //         //clear state and controlled inputs
-  //         //need value attrib on inputs for this
-  //         setUser('');
-  //         setPwd('');
-  //         setMatchPwd('');
-  //     } catch (err) {
-  //         if (!err?.response) {
-  //             setErrMsg('No Server Response');
-  //         } else if (err.response?.status === 409) {
-  //             setErrMsg('Username Taken');
-  //         } else {
-  //             setErrMsg('Registration Failed')
-  //         }
-  //         errRef.current.focus();
-  //     }
-  // }
-  console.log(validPwd, pwd);
   return (
     <>
       <div className="register">
