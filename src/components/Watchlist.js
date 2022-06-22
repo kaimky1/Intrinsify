@@ -1,5 +1,6 @@
 import { render } from "@testing-library/react";
 import React, { useEffect, useState, prevState } from "react";
+import '../css/Watchlist.css'
 
 var axios = require("axios").default;
 let userID = Number(window.localStorage.getItem("userID"));
@@ -23,41 +24,54 @@ const Watchlist = () => {
       });
   }, []);
 
+  console.log(post, "post");
+  const param = post.map((element) => element.stock_ticker);
 
-    const stocks = post.map((element, index) => {
-        return(
-          <h6 key={index}>{element.stock_ticker}</h6>
-        )
-    }
-    );
+  console.log(param.join());
+  const stocks = post.map((element, index) => {
+    return <h6 key={index}>{element.stock_ticker}</h6>;
+  });
 
-    const getPrice = async() => {
-      let prices = await Promise.all(
-        post.map(async(element, index) => {
-          await axios.get(`https://financialmodelingprep.com/api/v3/quote/${element.stock_ticker}?apikey=${process.env.REACT_APP_API_KEY}`)
-          .then(res => console.log(res.data))
-        })
+
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://financialmodelingprep.com/api/v3/quote/${param.join()}?apikey=${
+          process.env.REACT_APP_API_KEY
+        }`
       )
-    }
-    // let prices = post.map(async (element, index) => { await
-    //     axios.get(`https://financialmodelingprep.com/api/v3/quote/${element.stock_ticker}?apikey=${process.env.REACT_APP_API_KEY}`)
-    //     .then(res => {
-    //       console.log(res.data)
-    //     }) 
-    //     render(
-    //       <h1></h1>
-    //     )
-    //   })
-   
+      .then((res) => {
+        
+        setStock(res.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }, [post]);
 
+ 
+
+  let view = stock.map((element, index) => {
+    return (
+      <div key={index}>
+        <div className="stockInfo">
+          <p>{element.name}</p>
+          <p>${element.price}</p>
+        <button type="button" className="btn btn-success btn-small">Get More Details</button>
+        <button type="button" className="btn btn-danger btn-small">Delete</button>
+        </div>
+      </div>
+    );
+  });
 
   return (
     <div>
       <h1>Watchlist</h1>
-      <div>
-        {stocks}
-        {getPrice}
-      </div>
+      <input type="tel"></input>
+      <small>Format: +1123-456-7890</small>
+      <button>Send Me Text Updates</button>
+      <div>{view}</div>
     </div>
   );
 };
