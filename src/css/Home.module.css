@@ -66,11 +66,14 @@
   }
 }
 
+b{
+  color: #33cabb;
+}
 .cell {
   padding: 6px 12px;
   padding-left: 10px;
   display: table-cell;
-  width: 182px
+  width: 180px
 }
 @media screen and (max-width: 580px) {
   .cell {
