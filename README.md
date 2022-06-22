@@ -17,7 +17,7 @@
 * Users will be able to create discussion boards to talk more in depth about stocks with other users
 
 **Searching a Stock**
-![Searching Stocks](/pictures/stock%20search%20gif.gif)
+(/pictures/stock%20search%20gif.gif)
 
 
 
