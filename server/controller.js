@@ -111,5 +111,17 @@ module.exports = {
       console.log(dbRes)
       res.status(200).send(dbRes[0])})
     .catch(err => console.log(err))
+   },
+
+   deleteFavorite: (req, res) => {
+    const { name } = req.params
+    console.log(name)
+    sequelize.query(
+      `DELETE FROM users_fav
+      WHERE stock_ticker = '${name}'
+      `
+    ).then(dbRes => res.status(200).send(dbRes[0]))
+    .catch(err => console.log(err))
+
    }
 };

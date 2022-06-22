@@ -7,15 +7,7 @@ import { UsernameContext } from "../App";
 const Header = () => {
   
   const {username, setUsername} = useContext(UsernameContext)
-//   const [username, setUsername] = useState()
 
-//   let checkUsername = Boolean(localStorage.getItem("username"))
-
-//   useEffect(()=> {
-//     setUsername(checkUsername)
-//   }, [checkUsername])
-
-// console.log("username",username)
 
   
   const logoutHandler = () => {
@@ -112,11 +104,6 @@ console.log("showMe",showMe)
             <Link to="/home">
               <a href="#" className="nav-item nav-link">
                 Home
-              </a>
-            </Link>
-            <Link to="/about">
-              <a href="#" className="nav-item nav-link">
-                About
               </a>
             </Link>
 

@@ -44,6 +44,8 @@ app.post('/login', login)
 app.post('/favorite', favorite)
 app.get('/getFavorite', getFavorite)
 
+app.delete('/getFavorite/:name', deleteFavorite)
+
 const sendTextMessage = () => {
     client.messages
     .create({

@@ -1,6 +1,8 @@
 import React, { useEffect, useState, prevState } from "react";
 import "../css/Watchlist.css";
 import StockCard from "./StockCard";
+import { Link } from "react-router-dom";
+import swal from "sweetalert";
 
 var axios = require("axios").default;
 let userID = Number(window.localStorage.getItem("userID"));
@@ -10,6 +12,32 @@ const Watchlist = () => {
   const [stock, setStock] = useState([]);
   const [number, setNumber] = useState("");
 
+  //Delete Function Request
+  const deleteHandler = (name) => {
+    axios
+      .delete(`http://localhost:4004/getFavorite/${name}`)
+      .then((res) => {
+        swal("Deleted!", `${name} has been deleted`, "success");
+        rerender();
+      })
+      .catch((err) => {
+        swal("Error", err, "error");
+      });
+  };
+
+  const rerender = () =>
+    axios
+      .get(`http://localhost:4004/getFavorite`, {
+        params: {
+          userID: userID,
+        },
+      })
+      .then((res) => {
+        setPost(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   //API requests. One to backend and one to retrieve all the stocks in the watchlist.
   useEffect(() => {
     axios
@@ -26,11 +54,10 @@ const Watchlist = () => {
       });
   }, []);
 
-
   const param = post.map((element) => element.stock_ticker);
 
+  //This logic here is to get an API call for each stock ticker in an array.
 
-//This logic here is to get an API call for each stock ticker in an array.
   // const stocks = post.map((element, index) => {
   //   return <StockCard element={element} />;
   // });
@@ -50,16 +77,30 @@ const Watchlist = () => {
       });
   }, [post]);
 
+  console.log(stock);
   let view = stock.map((element, index) => {
     return (
       <div key={index}>
         <div className="stockInfo">
-          <p>{element.name}</p>
-          <p>${element.price}</p>
-          <button type="button" className="btn btn-success btn-small">
-            Get More Details
-          </button>
-          <button type="button" className="btn btn-danger btn-small">
+          <p className="stockInfo1">{element.symbol + " "}</p>
+          <p className="stockInfo1">{element.name + " "}</p>
+          <p className="stockInfo1">${element.price + " "}</p>
+          <p className="stockInfo1">{element.changesPercentage}%</p>
+          <Link to={`/search/${element.symbol}`}>
+            <button
+              type="button"
+              className="btn btn-success btn-sm"
+              id="getMore"
+            >
+              Get More Details
+            </button>
+          </Link>
+          <button
+            onClick={() => deleteHandler(element.symbol)}
+            type="button"
+            className="btn btn-danger btn-sm"
+            id="delete"
+          >
             Delete
           </button>
         </div>
@@ -91,13 +132,14 @@ const Watchlist = () => {
       });
   };
   return (
-    <div>
+    <div className="watchlist">
       <h1>Watchlist</h1>
+  
       <input type="tel" onChange={(e) => setNumber(e.target.value)}></input>
       <small>Format: +1123-456-7890</small>
       <button onClick={textClickHandler}>Send Me Text Updates</button>
-      <div>{view}</div>
-      {stocks}
+      <div className="stockDisplay">{view}</div>
+      {/* {stocks} */}
     </div>
   );
 };
