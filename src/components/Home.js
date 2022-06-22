@@ -1,26 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { render } from "react-dom";
+import "../css/Home.css";
 import HomeCSS from "../css/Home.module.css";
 import StockIndex from "./StockIndex";
+import stockImage from "../photos/stock.jpg";
 var axios = require("axios").default;
 
 const Home = () => {
- 
-
- 
-    
   return (
     <div>
-        <div>
-            <h1>
-            Keep it Simple and Intrin<b>$</b>ify
-            </h1>
-        </div>
-        <div>
-            <StockIndex />
-        </div>
+      <div>
+        <img src={stockImage} className="stockImage"></img>
+          <h1 id="mantra">
+            Keep it Simple and Intrin<b>$</b>ify.
+          </h1>
+      </div>
+      <div className="charts">
+        <StockIndex />
+        Another Chart Here
+        Another Chart Here
+      </div>
     </div>
-  )
+  );
 };
 
 export default Home;

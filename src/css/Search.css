@@ -1,8 +1,9 @@
 .search{
     padding: 25px;
-    width: 90vw;
+    width: 100%;
     display: flex;
     justify-content: space-between;
+    background-color: #d6f6dd
 }
 .stockInput{
     margin: 10px;
