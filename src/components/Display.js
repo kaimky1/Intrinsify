@@ -15,6 +15,8 @@ const Display = () => {
   const [stockFinancials, setStockFinancials] = useState([]);
   const [rating, setRating] = useState([]);
   const [grade, setGrade] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [execs, setExecs] = useState([]);
 
   //get localstorage ID
 
@@ -123,6 +125,33 @@ const Display = () => {
         swal("Something went wrong", `${err.response.data}`, "error");
       });
   };
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://financialmodelingprep.com/api/v3/key-executives/${elementSymbol}?apikey=${process.env.REACT_APP_API_KEY}`
+      )
+      .then((response) => {
+        console.log(response.data)
+        setExecs(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }, []);
+
+  let keyExecutives = execs.map((element, index) => {
+    if(element.pay === null){
+     element.pay="undisclosed"
+    }
+    return <div className="keyExecs">
+      <p id="execInfo">{element.name}</p>
+      <p id="execInfo">{element.title}</p>
+      <p id="execInfo">${element.pay}</p>
+      <p id="execInfo">{element.gender}</p>
+    </div>
+  })
+
   return (
     <div className="dataInfo">
       <h2 id="stockName">{stockPrice.name}</h2>
@@ -176,8 +205,12 @@ const Display = () => {
         <button id="watchlist" onClick={clickHandler}>
           Add To Watchlist
         </button>
-        <button id="watchlist">Key Executives and Salaries</button>
-        <Modal>Fancy Modal</Modal>
+        <button id="watchlist" onClick={() => setIsOpen(true)}>
+          Key Executives and Salaries
+        </button>
+        <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+          {keyExecutives}
+        </Modal>
       </div>
     </div>
   );

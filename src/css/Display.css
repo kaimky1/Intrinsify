@@ -6,7 +6,13 @@
     overflow-y: auto;
     background-color: lightgreen;
 }
-
+.keyExecs{
+    display: flex;
+}
+#execInfo{
+    padding: 5px;
+    width: 250px;
+}
 #stockName{
     text-align: center;
 }
