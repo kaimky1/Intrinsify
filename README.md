@@ -13,15 +13,21 @@
 * A table for watchlist that were added by a specific user
 ![Intrinsify Database](/pictures/Intrinsify%20Database.png)
 
+**Loggin In**
+<br>
+*I created a login which verified the username and password via bcrypt to the POSTGRESQL database. 
+![Logging In](/pictures/login.gif)
+<br> 
 
 **Searching a Stock**
 <br>
 *The idea of easily searching for a stock name or ticker symbol was one of the things that I wanted to implement. 
-![Searching Stocks](/pictures/stock%20search%20gif.gif)
+![Searching Stocks](/pictures/stockselect.gif)
 
 <br>
 
 **Using Twili API**
+<br>
 *Getting updates every 24 hours from the stock prices in you watchlist.
 ![Sending Updates Via Twilio API](/pictures/textSend.gif)
 
