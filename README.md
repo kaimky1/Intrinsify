@@ -20,8 +20,10 @@
 ![Searching Stocks](/pictures/stock%20search%20gif.gif)
 
 <br>
+
+**Using Twili API**
 *Getting updates every 24 hours from the stock prices in you watchlist.
-![Searching Stocks](/pictures/textSendGIF.gif)
+![Sending Updates Via Twilio API](/pictures/textSend.gif)
 
 **Future Features**
 * Users will be able to create discussion boards to talk more in depth about stocks with other users
