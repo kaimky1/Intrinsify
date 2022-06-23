@@ -20,7 +20,7 @@ const Search = () => {
   const clickHandler = (e) => {
     axios
       .get(
-        `https://financialmodelingprep.com/api/v3/search?query=${input}&limit=10&apikey=${process.env.REACT_APP_API_KEY}`
+        `https://financialmodelingprep.com/api/v3/search?query=${input}&limit=20&apikey=${process.env.REACT_APP_API_KEY}`
       )
       .then((response) => {
         setPost(response.data);
@@ -42,31 +42,37 @@ const Search = () => {
     );
   });
 
-
   return (
     <div className="search">
       <div>
-      <input
-        className="stockInput"
-        placeholder="Search for a stock"
-        onChange={changeHandler}
-      ></input>
-      <button type="button" onClick={clickHandler} className="btn btn-success">
-        Search
-      </button>
-      {searchResults}
+        <input
+          className="stockInput"
+          placeholder="Search for a stock"
+          onChange={changeHandler}
+        ></input>
+        <button
+          type="button"
+          onClick={clickHandler}
+          className="btn btn-success"
+        >
+          Search
+        </button>
+        <div className="searching">
+
+        {searchResults}
+        </div>
       </div>
       <>
-      <div className="GainsLosses">
-        <h1 id="topGainHeader">Top Gainers</h1>
-        <div className="topGainers">
-          <TopGainersLosers />
+        <div className="GainsLosses">
+          <h1 id="topGainHeader">Top Gainers</h1>
+          <div className="topGainers">
+            <TopGainersLosers />
+          </div>
+          <h1 id="topLossHeader">Top Losers</h1>
+          <div className="topLosers">
+            <TopLosers />
+          </div>
         </div>
-        <h1 id="topLossHeader">Top Losers</h1>
-        <div className="topLosers">
-          <TopLosers />
-        </div>
-      </div>
       </>
     </div>
   );

@@ -8,3 +8,7 @@
 .stockInput{
     margin: 10px;
 }
+.searching{
+    height: 745px;
+    overflow-y: auto;
+}

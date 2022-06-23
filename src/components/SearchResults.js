@@ -11,7 +11,7 @@ const SearchResults = (props) => {
     
   };
 
-  console.log("SearchResults Props", props);
+  
   const { elementName, elementSymbol } = props;
   return (
     <div>

@@ -1,3 +1,4 @@
+
 .stockInfo{
     display: flex;
     padding: 10px;
@@ -26,6 +27,8 @@
     align-items: center;
     margin: auto;
     justify-content: center;
+    height: 91vh;
+    background-color: #33cabb;
 
 }
 

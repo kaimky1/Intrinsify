@@ -82,8 +82,8 @@ const Watchlist = () => {
     return (
       <div key={index}>
         <div className="stockInfo">
-          <p className="stockInfo1">{element.symbol + " "}</p>
-          <p className="stockInfo1">{element.name + " "}</p>
+          <h5 className="stockInfo1">{element.symbol + " "}</h5>
+          <h6 className="stockInfo1">{element.name + " "}</h6>
           <p className="stockInfo1">${element.price + " "}</p>
           <p className="stockInfo1">{element.changesPercentage}%</p>
           <Link to={`/search/${element.symbol}`}>
@@ -131,12 +131,16 @@ const Watchlist = () => {
         console.log(err);
       });
   };
+
+  const STYLE = {
+    padding: "15px",
+  }
   return (
     <div className="watchlist">
       <h1>Watchlist</h1>
-  
+      
       <input type="tel" onChange={(e) => setNumber(e.target.value)}></input>
-      <small>Format: +1123-456-7890</small>
+      <small id="telphone" style={STYLE}>Format: +1123-456-7890</small>
       <button onClick={textClickHandler}>Send Me Text Updates</button>
       <div className="stockDisplay">{view}</div>
       {/* {stocks} */}
