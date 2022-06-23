@@ -123,6 +123,8 @@ const Watchlist = () => {
   };
   const handleChange = (e) => {
     if (e.target.checked) {
+      setInterval(() => {
+
         axios
           .post(`http://localhost:4004/`, bodyObj)
           .then((res) => {
@@ -135,6 +137,7 @@ const Watchlist = () => {
           .catch((err) => {
             console.log(err);
           });
+      }, 86400000)
       }
     }
   

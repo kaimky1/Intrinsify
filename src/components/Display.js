@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import "../css/Display.css";
 import Modal from "./Modal";
 import swal from "sweetalert";
+import e from "cors";
 
 var axios = require("axios").default;
 
@@ -139,10 +140,13 @@ const Display = () => {
         console.error(error);
       });
   }, []);
-
+console.log(execs, "exec")
   let keyExecutives = execs.map((element, index) => {
     if(element.pay === null){
      element.pay="undisclosed"
+    }
+    if(element.gender === ""){
+      element.gender="undisclosed"
     }
     return <div className="keyExecs">
       <p id="execInfo">{element.name}</p>
