@@ -19,7 +19,9 @@
 *The idea of easily searching for a stock name or ticker symbol was one of the things that I wanted to implement. 
 ![Searching Stocks](/pictures/stock%20search%20gif.gif)
 
-
+<br>
+*Getting updates every 24 hours from the stock prices in you watchlist.
+![Searching Stocks](/pictures/textSendGIF.gif)
 
 **Future Features**
 * Users will be able to create discussion boards to talk more in depth about stocks with other users
