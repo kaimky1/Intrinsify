@@ -1,6 +1,6 @@
 # Intrinsify 
 
-**Pitch/Idea:** For beginners, it can be very overwhelming when first investing. The ratios, technical indicators, cash flow, and all the technical jargon is a lot to learn. I have created a web application that allows users that are new to the investing space to search stocks and easily look at their intrinsic value. I have also added some summaries of some imporant metrics that all beginner investors should know. 
+**Pitch/Idea:** For beginners, it can be very overwhelming when first investing. The ratios, technical indicators, cash flow, and all the technical jargon is a lot to learn and take in. I have created a web application that allows users that are new to the investing space to search stocks and easily look at their intrinsic value. I have also added some summaries of some imporant metrics that all beginner investors should know. 
 
 **MVP/Key Features:** 
 * Discover stocks based on simple user search
@@ -13,9 +13,14 @@
 * A table for watchlist that were added by a specific user
 ![Intrinsify Database](/pictures/Intrinsify%20Database.png)
 
-**Loggin In**
+**Registering**
 <br>
-*I created a login which verified the username and password via bcrypt to the POSTGRESQL database. 
+*Creating the register page involved a lot of REGEX syntax to check is the user input passed requirements. 
+![Registering](/pictures/register.gif)
+
+**Logging In**
+<br>
+*I created a login which verified the username and password via bcrypt to the POSTGRESQL database. If user enters the wrong password, an alert with an error will pop up.
 ![Logging In](/pictures/login.gif)
 <br> 
 
@@ -23,6 +28,13 @@
 <br>
 *The idea of easily searching for a stock name or ticker symbol was one of the things that I wanted to implement. 
 ![Searching Stocks](/pictures/stockselect.gif)
+
+<br>
+
+**Fetching Stock News**
+<br>
+*Utilizing Bootstrap's pagination, I was able to fetch relevant news articles and display them to the user. 
+![Searching Stocks](/pictures/news.gif)
 
 <br>
 
