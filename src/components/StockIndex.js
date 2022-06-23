@@ -22,7 +22,7 @@ const StockIndex = () => {
   
     let stocks = post.map((element, index) => {
       return (
-        <div>
+        <div key={index}>
           <div className={HomeCSS.row}>
             <div className={HomeCSS.cell} data-title={HomeCSS.Name}>
               {element.name}

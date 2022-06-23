@@ -2,6 +2,9 @@
     width: 50%;
     text-align: left;
     padding: 5px;
+    height: 800px;
+    overflow-y: auto;
+    background-color: lightgreen;
 }
 
 #stockName{
@@ -10,7 +13,9 @@
 #stockPrice{
     text-align: center;
 }
-
+.buttons{
+    display: flex;
+}
 #watchlist{
     text-align: center;
     margin: auto;

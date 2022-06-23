@@ -13,12 +13,16 @@
 * A table for watchlist that were added by a specific user
 ![Intrinsify Database](/pictures/Intrinsify%20Database.png)
 
-**Future Features**
-* Users will be able to create discussion boards to talk more in depth about stocks with other users
 
 **Searching a Stock**
 <br>
+*The idea of easily searching for a stock name or ticker symbol was one of the things that I wanted to implement. 
 ![Searching Stocks](/pictures/stock%20search%20gif.gif)
+
+
+
+**Future Features**
+* Users will be able to create discussion boards to talk more in depth about stocks with other users
 
 
 

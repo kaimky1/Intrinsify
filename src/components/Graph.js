@@ -38,7 +38,7 @@ const Graph = () => {
               return element.close;
             })
         );
-        setLabel("1 Day Stock Price for ");
+        setLabel(`1 Day Stock Price ` +  new Date().toJSON().slice(0, 10));
       })
       .catch(function (error) {
         console.error(error);

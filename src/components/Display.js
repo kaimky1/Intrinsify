@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "../css/Display.css";
+import Modal from "./Modal";
 import swal from "sweetalert";
 
 var axios = require("axios").default;
 
 const Display = () => {
-  
-
   const { elementSymbol } = useParams();
   const [post, setPost] = useState([]);
   const [data, setData] = useState([]);
@@ -17,15 +16,13 @@ const Display = () => {
   const [rating, setRating] = useState([]);
   const [grade, setGrade] = useState([]);
 
-
   //get localstorage ID
 
-  const userID = localStorage.getItem("userID")
+  const userID = localStorage.getItem("userID");
   //API Calls
 
   //Getting the P/E ratio
   useEffect(() => {
-    
     axios
       .get(
         `https://financialmodelingprep.com/api/v3/ratios-ttm/${elementSymbol}?apikey=${process.env.REACT_APP_API_KEY}`
@@ -110,23 +107,22 @@ const Display = () => {
       });
   }, []);
 
-
   const clickHandler = () => {
     let body = {
       stockTicker: elementSymbol,
-      userID: userID
-    }
-    axios.post(`http://localhost:4004/favorite`, body)
-    .then( res => {
-      console.log("hit", res)
-      swal("Added To Watchlist", `${elementSymbol} was added`, 'success')
-
-    })
-    .catch(err => {
-      console.log(err.response)
-      swal("Something went wrong", `${err.response.data}`, 'error')
-    })
-  }
+      userID: userID,
+    };
+    axios
+      .post(`http://localhost:4004/favorite`, body)
+      .then((res) => {
+        console.log("hit", res);
+        swal("Added To Watchlist", `${elementSymbol} was added`, "success");
+      })
+      .catch((err) => {
+        console.log(err.response);
+        swal("Something went wrong", `${err.response.data}`, "error");
+      });
+  };
   return (
     <div className="dataInfo">
       <h2 id="stockName">{stockPrice.name}</h2>
@@ -176,7 +172,13 @@ const Display = () => {
         **The grade info is pulled from most recent company that has graded the
         stock.**
       </p>
-      <button id="watchlist" onClick={clickHandler}>Add To Watchlist</button>
+      <div className="buttons">
+        <button id="watchlist" onClick={clickHandler}>
+          Add To Watchlist
+        </button>
+        <button id="watchlist">Key Executives and Salaries</button>
+        <Modal>Fancy Modal</Modal>
+      </div>
     </div>
   );
 };
