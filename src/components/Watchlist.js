@@ -121,27 +121,40 @@ const Watchlist = () => {
     from: `+19807377433`,
     to: `${number}`,
   };
-  const textClickHandler = () => {
-    axios
-      .post(`http://localhost:4004/`, bodyObj)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  const handleChange = (e) => {
+    if (e.target.checked) {
+        axios
+          .post(`http://localhost:4004/`, bodyObj)
+          .then((res) => {
+            swal(
+              "Confirmed!",
+              `Stock updates will be sent every 24 hours`,
+              "success"
+            );
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    }
+  
 
   const STYLE = {
     padding: "15px",
-  }
+  };
   return (
     <div className="watchlist">
       <h1>Watchlist</h1>
-      
+
       <input type="tel" onChange={(e) => setNumber(e.target.value)}></input>
-      <small id="telphone" style={STYLE}>Format: +1123-456-7890</small>
-      <button onClick={textClickHandler}>Send Me Text Updates</button>
+      <small id="telphone" style={STYLE}>
+        Format: +1123-456-7890
+      </small>
+
+      <label for="texts">
+        <input type="checkbox" onChange={handleChange}></input>Recieve 24 Hour
+        Text Updates
+      </label>
       <div className="stockDisplay">{view}</div>
       {/* {stocks} */}
     </div>

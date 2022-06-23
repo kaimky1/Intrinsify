@@ -35,8 +35,7 @@ app.post('/', (req, res) => {
     .create(req.body)
     .then(message => console.log(message.sid, 'Message sent'))
     res.status(200).send("Message Sent!")
-}
-)
+})
 
 app.post('/register', register)
 app.post('/login', login)
