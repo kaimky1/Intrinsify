@@ -20,7 +20,7 @@
 
 **Logging In**
 <br>
-*I created a login which verified the username and password via bcrypt to the POSTGRESQL database. If user enters the wrong password, an alert with an error will pop up.
+*I created a login page which verified the username and password via bcrypt to the POSTGRESQL database. If the user enters the wrong password, an alert with an error will pop up.
 ![Logging In](/pictures/login.gif)
 <br> 
 
