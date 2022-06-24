@@ -15,7 +15,7 @@
 
 **Registering**
 <br>
-*Creating the register page involved a lot of REGEX syntax to check is the user input passed requirements. 
+*Creating the register page involved REGEX syntax to check if the user input passed requirements that I created. 
 ![Registering](/pictures/register.gif)
 
 **Logging In**
