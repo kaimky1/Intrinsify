@@ -98,7 +98,7 @@ body {
 }
 .navbar .btn-primary, .navbar .btn-primary:active {
 	color: #fff;
-	background: #33cabb !important;
+	background: lightblue !important;
 	border: none;
 }	
 .navbar .btn-primary:hover, .navbar .btn-primary:focus {		
