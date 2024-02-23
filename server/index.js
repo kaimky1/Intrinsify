@@ -27,16 +27,6 @@ const {
 } = require('./controller.js')
 
 app.post('/seed', seed)
-
-// app.post('/', (req, res) => {
-//     console.log(req.body, "body")
-//     client
-//     .messages
-//     .create(req.body)
-//     .then(message => console.log(message.sid, 'Message sent'))
-//     res.status(200).send("Message Sent!")
-// })
-
 app.post('/register', register)
 app.post('/login', login)
 

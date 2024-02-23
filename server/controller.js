@@ -1,5 +1,4 @@
 const bcrypt = require("bcryptjs");
-const e = require("cors");
 require("dotenv").config();
 const { DATABASE_URL } = process.env;
 const Sequelize = require("sequelize");
@@ -32,10 +31,7 @@ module.exports = {
   },
 
   favorite: (req, res) => {
-    console.log(req.body);
     const { stockTicker, userID } = req.body;
-
-    console.log("hit favorite");
     sequelize
       .query(
         `
@@ -63,7 +59,6 @@ module.exports = {
           );
           res.status(200).send(dbRes[0]);
         }else if(inDB == true){
-          console.log("This should be true:", inDB)
           res.status(400).send("Error: Stock already exists in favorites")
         }
       })
@@ -72,7 +67,6 @@ module.exports = {
   
 
   login: (req, res) => {
-    console.log("Logging In User");
     const { username, password } = req.body;
     sequelize
       .query(
@@ -98,11 +92,6 @@ module.exports = {
 
   getFavorite: (req, res) => {
     const {userID} = req.query;
-    console.log("userID", userID)
-
-    console.log(req.query, "reqquery")
-    console.log(req.params, "reqparams")
-    console.log(req.body, "reqbody")
     sequelize.query(
       `SELECT stock_ticker
       FROM users_fav
@@ -115,7 +104,6 @@ module.exports = {
 
    deleteFavorite: (req, res) => {
     const { name } = req.params
-    console.log(name)
     sequelize.query(
       `DELETE FROM users_fav
       WHERE stock_ticker = '${name}'

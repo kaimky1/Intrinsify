@@ -6,12 +6,6 @@
   box-sizing: border-box;
 }
 
-/* html {
-    font-family: 'Nunito', sans-serif;
-    font-size: 22px;
-    color: #fff;
-}  */
-
 .registerPage {
   min-height: 100vh;
   background-color: #d6f6dd;
@@ -59,11 +53,6 @@ form {
   justify-content: space-evenly;
   flex-grow: 1;
 }
-
-/* a,
-a:visited {
-  color: #fff;
-} */
 
 input[type="text"],
 input[type="password"],

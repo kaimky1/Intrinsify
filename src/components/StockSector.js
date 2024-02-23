@@ -4,19 +4,14 @@ var axios = require("axios").default;
 
 const StockSector = () => {
   const [post, setPost] = useState([]);
-  const [exchange, setExchange] = useState("NYSE")
-  var date = new Date().toISOString().split("T")[0];
-
-console.log(date)
+  const [exchange] = useState("NYSE")
   useEffect(() => {
     axios
       .get(
          `https://financialmodelingprep.com/api/v4/sector_price_earning_ratio?date=2022-06-22&exchange=${exchange}&apikey=${process.env.REACT_APP_API_KEY}
-
         `
       )
       .then((response) => {
-        console.log(response.data);
         setPost(response.data);
       })
       .catch(function (error) {

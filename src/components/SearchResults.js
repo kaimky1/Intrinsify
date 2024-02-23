@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Display from "./Display";
 import { Link } from "react-router-dom";
 import "../css/SearchResult.css";
 
@@ -11,7 +10,6 @@ const SearchResults = (props) => {
     
   };
 
-  
   const { elementName, elementSymbol } = props;
   return (
     <div>
@@ -22,8 +20,7 @@ const SearchResults = (props) => {
           <button
             type="button"
             className="btn btn-primary btn-sm"
-            onClick={() => clickHandler()}
-          >
+            onClick={() => clickHandler()}>
             Click for more details
           </button>
         </Link>

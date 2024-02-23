@@ -1,6 +1,7 @@
 .losers{
     display:flex;
 }
+
 .losersInfo{
     border-style: solid;
     border-width: 1px;
@@ -8,20 +9,25 @@
     padding-right: 5px;
     padding-bottom: 0;
 }
+
 #losersSymbol{
     width: 60px
 }
+
 #losersName{
     width: 200px 
 }
+
 #losersChange{
     width: 100px;
     color:red;
     
 }
+
 #losersPrice{
     width:100px;
 }
+
 #losersPercentage{
     width:100px;
     color:red;

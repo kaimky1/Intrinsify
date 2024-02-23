@@ -77,7 +77,6 @@ const Watchlist = () => {
       });
   }, [post]);
 
-  console.log(stock);
   let view = stock.map((element, index) => {
     return (
       <div key={index}>

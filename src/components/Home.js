@@ -1,12 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { render } from "react-dom";
+import React from "react";
 import "../css/Home.css";
-import HomeCSS from "../css/Home.module.css";
 import StockIndex from "./StockIndex";
 import StockSector from "./StockSector";
 import stockImage from "../photos/stock.jpg";
-
-var axios = require("axios").default;
 
 const Home = () => {
   return (

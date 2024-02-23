@@ -3,14 +3,11 @@ import React, { useState, useEffect, createContext } from "react";
 import Search from "./components/Search";
 import { Routes, Route } from "react-router-dom";
 import Display from "./components/Display";
-import TopGainersLosers from "./components/TopGainersLosers";
-import TopLosers from "./components/TopLosers";
 import Graph from "./components/Graph";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Home from "./components/Home";
 import News from "./components/News";
-import About from "./components/About";
 import Header from "./components/Header";
 import Watchlist from "./components/Watchlist";
 
@@ -24,9 +21,6 @@ function App() {
   useEffect(()=> {
     setUsername(checkUsername)
   }, [checkUsername])
-
-console.log("username",username)
-
   return (
     <div className="App">
       <UsernameContext.Provider value={{username, setUsername}}>
@@ -37,7 +31,6 @@ console.log("username",username)
           element={
             <>
               <Search />
-             
             </>
           }
         />
@@ -70,7 +63,6 @@ console.log("username",username)
         element={<Home />} />
         <Route path="/news"
         element={<News />} />
-        <Route path ="/about" element={<About />} />
         <Route path ="/watchlist" element={<Watchlist />} />
 
 

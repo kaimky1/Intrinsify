@@ -3,14 +3,12 @@ import { useParams } from "react-router-dom";
 import "../css/Display.css";
 import Modal from "./Modal";
 import swal from "sweetalert";
-import e from "cors";
 
 var axios = require("axios").default;
 
 const Display = () => {
   const { elementSymbol } = useParams();
   const [post, setPost] = useState([]);
-  const [data, setData] = useState([]);
   const [stockPrice, setStockPrice] = useState([]);
   const [aboutStock, setAboutStock] = useState([]);
   const [stockFinancials, setStockFinancials] = useState([]);
@@ -46,7 +44,6 @@ const Display = () => {
       )
       .then((response) => {
         setStockPrice(response.data[0]);
-        console.log(stockPrice);
       })
       .catch(function (error) {
         console.error(error);
@@ -82,7 +79,6 @@ const Display = () => {
   }, []);
 
   //Getting the share rating
-
   useEffect(() => {
     axios
       .get(
@@ -118,7 +114,6 @@ const Display = () => {
     axios
       .post(`http://localhost:4004/favorite`, body)
       .then((res) => {
-        console.log("hit", res);
         swal("Added To Watchlist", `${elementSymbol} was added`, "success");
       })
       .catch((err) => {
@@ -133,14 +128,12 @@ const Display = () => {
         `https://financialmodelingprep.com/api/v3/key-executives/${elementSymbol}?apikey=${process.env.REACT_APP_API_KEY}`
       )
       .then((response) => {
-        console.log(response.data)
         setExecs(response.data);
       })
       .catch(function (error) {
         console.error(error);
       });
   }, []);
-console.log(execs, "exec")
   let keyExecutives = execs.map((element, index) => {
     if(element.pay === null){
      element.pay="undisclosed"

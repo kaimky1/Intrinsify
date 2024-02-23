@@ -20,7 +20,6 @@ const Graph = () => {
         ` https://financialmodelingprep.com/api/v3/historical-chart/5min/${elementSymbol}?apikey=${process.env.REACT_APP_API_KEY}`
       )
       .then((response) => {
-        console.log("responsedata", response.data);
         setStats(response.data);
         setDates(
           response.data
@@ -52,7 +51,6 @@ const Graph = () => {
         ` https://financialmodelingprep.com/api/v3/technical_indicator/daily/${elementSymbol}?period=10&type=ema&apikey=${process.env.REACT_APP_API_KEY}`
       )
       .then((response) => {
-        console.log(response.data)
         setStats(response.data);
         setDates(
           response.data

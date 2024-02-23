@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import HomeCSS from "../css/Home.module.css";
-
 var axios = require("axios").default;
 
 
@@ -12,7 +11,6 @@ const StockIndex = () => {
           `https://financialmodelingprep.com/api/v3/quote/%5EGSPC,%5EDJI,%5EIXIC?apikey=${process.env.REACT_APP_API_KEY}`
         )
         .then((response) => {
-          console.log(response.data);
           setPost(response.data);
         })
         .catch(function (error) {

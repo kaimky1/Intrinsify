@@ -6,27 +6,33 @@
     overflow-y: auto;
     background-color: lightgreen;
 }
+
 .keyExecs{
     display: flex;
 }
+
 #execInfo{
     padding: 5px;
     width: 250px;
 }
+
 #stockName{
     text-align: center;
 }
 #stockPrice{
     text-align: center;
 }
+
 .buttons{
     display: flex;
 }
+
 #watchlist{
     text-align: center;
     margin: auto;
     display:flex;
 }
+
 p{
     font-size:0.9rem
 }

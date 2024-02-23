@@ -25,7 +25,6 @@ const Header = () => {
       setShowMe(true);
     }
   };
-console.log("showMe",showMe)
   
   const authButton = () => {
     if (username === false) {

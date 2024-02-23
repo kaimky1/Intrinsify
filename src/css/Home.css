@@ -7,25 +7,25 @@
 .container {
     position: relative;
     text-align: center;
-  }
+}
 
-  .textOVerlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+.textOVerlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
-  #mantra{
-    position: absolute;
-    top: 200px; left: 600px;
-    color:white;
-    font-size: 50px;
-  }
+#mantra{
+  position: absolute;
+  top: 200px; left: 600px;
+  color:white;
+  font-size: 50px;
+}
+
 .charts{
-    display: flex;
-    text-align: center;
-    margin: auto;
-    justify-content: center;
-
+  display: flex;
+  text-align: center;
+  margin: auto;
+  justify-content: center;
 }
