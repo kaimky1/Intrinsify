@@ -30,7 +30,7 @@
 ![Searching Stocks](/pictures/stockselect.gif)
 
 <br>
-
+å
 **Fetching Stock News**
 <br>
 *Utilizing Bootstrap's pagination, I was able to fetch relevant news articles and display them to the user. 
@@ -38,7 +38,7 @@
 
 <br>
 
-**Using Twili API**
+**Using Twilio API**
 <br>
 *Getting updates every 24 hours from the stock prices in you watchlist.
 ![Sending Updates Via Twilio API](/pictures/textSend.gif)
