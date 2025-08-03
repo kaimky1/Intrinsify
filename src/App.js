@@ -14,9 +14,9 @@ import Watchlist from "./components/Watchlist";
 export const UsernameContext = createContext();
 
 function App() {
-  const [username, setUsername] = useState()
+  const [username, setUsername] = useState();
 
-  let checkUsername = Boolean(localStorage.getItem("username"))
+  let checkUsername = Boolean(localStorage.getItem("username"));
 
   useEffect(()=> {
     setUsername(checkUsername)

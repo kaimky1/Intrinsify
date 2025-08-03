@@ -18,11 +18,8 @@ const {
     login,
     register,
     favorite,
-    favoriteSkin,
     getFavorite,
-    getfavoriteSkin, 
     deleteFavorite,
-    deleteFavoriteSkin
 
 } = require('./controller.js')
 
@@ -34,16 +31,5 @@ app.post('/favorite', favorite)
 app.get('/getFavorite', getFavorite)
 
 app.delete('/getFavorite/:name', deleteFavorite)
-
-const sendTextMessage = () => {
-    client.messages
-    .create({
-       body: 'Good day',
-       from: '+19807377433',
-       to: '+18089711951'
-     })
-    .then(message => console.log(message.sid, 'Message sent'));
-}
-sendTextMessage()
 
 app.listen(SERVER_PORT, () => console.log(`up on ${SERVER_PORT}`))

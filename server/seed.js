@@ -6,14 +6,14 @@ module.exports = {
         DROP TABLE IF EXISTS users_fav;
         DROP TABLE IF EXISTS users;
 
-        create table users (
+        CREATE TABLE users (
             user_id serial primary key, 
             username varchar(20),
             first_name varchar(100), 
             last_name varchar(100),  
             password varchar(100)
         );
-        create table users_fav (
+        CREATE TABLE users_fav (
             users_fav serial primary key, 
             user_id integer references users(user_id), 
             stock_ticker varchar(50)

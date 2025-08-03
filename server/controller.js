@@ -71,9 +71,9 @@ module.exports = {
     sequelize
       .query(
         `
-    SELECT password, username, user_id FROM users
-    WHERE username = '${username}'
-`
+          SELECT password, username, user_id FROM users
+            WHERE username = '${username}'
+        `
       )
       .then((dbRes) => {
         console.log(dbRes[0][0].password);
@@ -94,7 +94,7 @@ module.exports = {
     const {userID} = req.query;
     sequelize.query(
       `SELECT stock_ticker
-      FROM users_fav
+        FROM users_fav
       WHERE user_id = ${userID}`
     ).then(dbRes => {
       console.log(dbRes)
@@ -106,7 +106,7 @@ module.exports = {
     const { name } = req.params
     sequelize.query(
       `DELETE FROM users_fav
-      WHERE stock_ticker = '${name}'
+        WHERE stock_ticker = '${name}'
       `
     ).then(dbRes => res.status(200).send(dbRes[0]))
     .catch(err => console.log(err))
