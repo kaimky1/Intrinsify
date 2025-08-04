@@ -19,7 +19,7 @@ const TopGainersLosers = () => {
       });
   }, []);
 
-  //Creating the Top Gainers table here.
+  // Creating the Top Gainers table here.
   let gainersResults = post.map((element, index) => {
     return (
       <div className="gainers" key={index}>

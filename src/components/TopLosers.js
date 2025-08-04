@@ -19,7 +19,7 @@ const TopLosers = () => {
       });
   }, []);
 
-  //Creating the Top Losers Table here.
+  // Creating the Top Losers Table here.
   let losersResults = post.map((element, index) => {
     return (
       <div className="losers" key={index}>

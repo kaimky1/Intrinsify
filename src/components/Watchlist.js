@@ -12,7 +12,7 @@ const Watchlist = () => {
   const [stock, setStock] = useState([]);
   const [number, setNumber] = useState("");
 
-  //Delete Function Request
+  // Delete Function Request
   const deleteHandler = (name) => {
     axios
       .delete(`http://localhost:4004/getFavorite/${name}`)
@@ -38,7 +38,7 @@ const Watchlist = () => {
       .catch((err) => {
         console.log(err);
       });
-  //API requests. One to backend and one to retrieve all the stocks in the watchlist.
+  // API requests. One to backend and one to retrieve all the stocks in the watchlist.
   useEffect(() => {
     axios
       .get(`http://localhost:4004/getFavorite`, {
@@ -56,7 +56,7 @@ const Watchlist = () => {
 
   const param = post.map((element) => element.stock_ticker);
 
-  //This logic here is to get an API call for each stock ticker in an array.
+  // This logic here is to get an API call for each stock ticker in an array.
 
   // const stocks = post.map((element, index) => {
   //   return <StockCard element={element} />;

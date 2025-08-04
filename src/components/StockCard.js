@@ -3,7 +3,7 @@ import axios from 'axios'
 const StockCard = ({element}) => {
     const [stock, setStock] = useState({})
 
-    //If you wanted to make an individual call for each item in an array this is how you would do it.
+    // If you wanted to make an individual call for each item in an array this is how you would do it.
     useEffect(() => {
         axios
         .get(

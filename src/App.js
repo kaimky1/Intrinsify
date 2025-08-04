@@ -21,6 +21,7 @@ function App() {
   useEffect(()=> {
     setUsername(checkUsername)
   }, [checkUsername])
+  
   return (
     <div className="App">
       <UsernameContext.Provider value={{username, setUsername}}>
