@@ -9,8 +9,8 @@
 * Text updates to desired phone number through Twilio API.
 
 **Database**
-*A table for user information
-*A table for watchlist that were added by a specific user
+* A table for user information
+* A table for watchlist that were added by a specific user
 ![Intrinsify Database](/pictures/Intrinsify%20Database.png)
 
 **Registering**
