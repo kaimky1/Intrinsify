@@ -1,6 +1,6 @@
 # Intrinsify 
 
-**Pitch/Idea:** For beginners, it can be very overwhelming when first investing. The ratios, technical indicators, cash flow, and all the technical jargon is a lot to learn and take in. I have created a web application that allows users that are new to the investing space to search stocks and easily look at their intrinsic value. I have also added summaries of some important metrics that all beginner investors should know. 
+**Pitch/Idea:** For beginners, it can be very overwhelming when first investing with the ratios, technical indicators, cash flow, and all the industry jargon. To simplify the learning curve, I have created a web application that allows users that are new to the investing space to search stocks and understand their intrinsic value. The app also includes summaries of  important metrics that all beginner investors should know. 
 
 **MVP/Key Features:** 
 * Discover stocks based on simple user search
