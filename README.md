@@ -8,42 +8,49 @@
 * Keep track of stocks you want, with your own watchlist (Add and Delete)
 * Text updates to desired phone number through Twilio API.
 
-**Database**
-* A table for user information
-* A table for watchlist that were added by a specific user
+## Database Schema
+- `users` — stores username, hashed password, etc.
+- `watchlist` — links user to selected stock symbols
+
 ![Intrinsify Database](/pictures/Intrinsify%20Database.png)
 
-**Registering**
-<br>
-*Creating the register page involved REGEX syntax to check if the user input passed requirements that I created. 
+---
+
+## Screenshots
+
+### Register Page
+Validates user input using REGEX patterns.  
 ![Registering](/pictures/register.gif)
 
-**Logging In**
-<br>
-*I created a login page which verified the username and password via bcrypt to the POSTGRESQL database. If the user enters the wrong password, an alert with an error will pop up.
-![Logging In](/pictures/login.gif)
-<br> 
+---
 
-**Searching a Stock**
-<br>
-*The idea of easily searching for a stock name or ticker symbol was one of the things that I wanted to implement. 
+### Login Page
+Authenticates credentials using bcrypt and PostgreSQL.  
+![Logging In](/pictures/login.gif)
+
+---
+
+### Stock Search
+Search for a stock by name or ticker symbol.  
 ![Searching Stocks](/pictures/stockselect.gif)
 
-<br>
-**Fetching Stock News**
-<br>
-*Utilizing Bootstrap's pagination, I was able to fetch relevant news articles and display them to the user. 
-![Searching Stocks](/pictures/news.gif)
+---
 
-<br>
+### News Pagination
+Relevant news fetched and paginated using Bootstrap.  
+![Stock News](/pictures/news.gif)
 
-**Using Twilio API**
-<br>
-*Getting updates every 24 hours from the stock prices in you watchlist.
-![Sending Updates Via Twilio API](/pictures/textSend.gif)
+---
 
-**Future Features**
-*Users will be able to create discussion boards to talk more in depth about stocks with other users
+### Twilio Integration
+Sends daily updates via text message.  
+![Twilio Text Updates](/pictures/textSend.gif)
+
+---
+
+## Future Improvements
+- Add stock discussion boards for community engagement
+---
 
 
 
