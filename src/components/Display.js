@@ -180,7 +180,7 @@ const Display = () => {
         if its P/E ratio equaled the industry average. In general, companies in
         the same industry tend to trade at similar P/E ratios. If a stock's P/E
         ratio is far off from the industry average, it might eventually - but
-        not necessarily - realign with the industry average."
+        not necessarily - realign with the industry average." While not a full intrinsic valuation, this provides a useful reference for how the stock might be priced if its valuation aligned with the industry average
       </p>
       <h6>
         Average Analyst Rating as of {rating.date}:
