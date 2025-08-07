@@ -11,7 +11,7 @@ const sequelize = new Sequelize(DATABASE_URL, {
     },
   },
 });
-
+// TODO: Always paramterize SQL Queries. Prone to SQL Injection
 module.exports = {
   register: (req, res) => {
     const { username, first_name, last_name, password } = req.body;
@@ -76,7 +76,6 @@ module.exports = {
         `
       )
       .then((dbRes) => {
-        console.log(dbRes[0][0].password);
         const existingPassword = bcrypt.compareSync(
           password,
           dbRes[0][0].password
